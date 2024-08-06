@@ -11,19 +11,19 @@
 }
 
 .btn-primary{
-    background-color: #f1592a;
-    border-color: #f1592a;
+    background-color: #e44e3f;
+    border-color: #e44e3f;
     cursor: pointer; /* change cursor on hover */
     transition: transform 0.3s ease-in-out; /* transition effect */}
 
 .btn-primary:hover{
-    background-color: #f1592a;
-    border-color: #f1592a;
+    background-color: #e44e3f;
+    border-color: #e44e3f;
 }
 
 .btn-primary:active{
-    background-color: #f1592a !important;
-    border-color: #f1592a  !important;
+    background-color: #e44e3f !important;
+    border-color: #e44e3f  !important;
     opacity: 0.8;
     transform: scale(0.9); /* zoom out on click */
     transition: transform 0.1s ease-in-out; /* transition effect */
@@ -51,5 +51,5 @@
 }
 
 .badge{
-background-color: #f1592a !important;
+background-color: #e44e3f !important;
 }
