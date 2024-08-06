@@ -9,7 +9,11 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/Food delivery app logo design.jpeg" type="image/x-icon">
   <title>Document</title>
 </head>
 
@@ -18,7 +22,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="images/images.png" style="width: 100px;" alt="">
+          <img src="images/Food delivery app logo design.jpeg" style="width: 100px;" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,84 +30,200 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Active</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              </li>
           </ul>
           <form class="d-flex gap-2" role="search" style="font-weight: 600;">
             <button class="btn btn-primary" type="submit">Login</button>
             <button class="btn btn-outline-primary" type="submit">Signup</button>
+            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-cart-shopping"></i></button>
           </form>
         </div>
       </div>
     </nav>
-    <div class="row px-2 py-4">
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/restaurant.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              <span class="badge text-bg-primary">Fastfood</span>
-              <span class="badge text-bg-primary">Drinks</span>
-            </p>
-            <a href="#" class="btn btn-primary">View All Dishes</a>
+    <!-- Use Bootstrap's grid system to create a responsive layout -->
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 my-2">
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/j01s-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/lhg0-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/n1zj-listing.jpg?width=400&height=225
+            " class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
 
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/images.jpeg" class="card-img-top" alt="..." style="width: 100px;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <p>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-            </p>
-            <a href="#" class="btn btn-primary">View All Dishes</a>
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/hxig-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
           </div>
         </div>
-      </div>
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/cglq-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/e3js-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
 
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/images.jpeg" class="card-img-top" alt="..." style="width: 100px;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <p>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-            </p>
-            <a href="#" class="btn btn-primary">View All Dishes</a>
+        <!-- Card 6 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/fyy4-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="images/images.jpeg" class="card-img-top" alt="..." style="width: 100px;">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <p>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-              <span class="badge text-bg-primary">Primary</span>
-            </p>
-            <a href="#" class="btn btn-primary">View All Dishes</a>
+        <!-- Card 7 -->
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/darc-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
           </div>
         </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/lznp-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/z0zd-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="https://images.deliveryhero.io/image/fd-pk/LH/bxm9-listing.jpg?width=400&height=225"
+              class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+              <!-- <a href="#" class="btn btn-primary">View All Dishes</a> -->
+            </div>
+          </div>
+        </div>
+
+
+
+
       </div>
     </div>
   </div>
-
-
-
 
 
   <script src="app.js"></script>
