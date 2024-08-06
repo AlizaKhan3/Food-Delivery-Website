@@ -57,7 +57,52 @@
 
         <div class="row px-2 py-4">
             <div class="col">
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3 w-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="https://images.deliveryhero.io/image/fd-pk/LH/n1zj-listing.jpg?width=400&height=225"
+                                class="img-fluid rounded-start w-100" alt="...">
+                            <div class="card-img-overlay">
+                                <!-- <h5 class="card-title">Avail discounts</h5> -->
+                                <button type="button" class="btn btn-primary" id="liveToastBtn">Avail 25% Off</button>
+
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive"
+                                        aria-atomic="true">
+                                        <div class="toast-header">
+                                            <img src="..." class="rounded me-2" alt="...">
+                                            <strong class="me-auto">OniFood</strong>
+                                            <small>11 mins ago</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Hello, world! This is a toast message.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Yum Foods</h5>
+                                <p class="card-text">
+                                    <span class="badge text-bg-primary px-4 py-2">Fastfood</span>
+                                    <span class="badge text-bg-primary px-4 py-2">Drinks</span>
+                                  </p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- Details menu etc -->
+        <div class="row px-2 py-4">
+            <div class="col-9">
+                <div class="card mb-3 w-100">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="..." class="img-fluid rounded-start" alt="...">
@@ -70,14 +115,19 @@
                                     additional content. This content is a little bit longer.</p>
                                 <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small>
                                 </p>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-3">
+            </div>
         </div>
 
     </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
