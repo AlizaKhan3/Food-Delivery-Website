@@ -55,7 +55,22 @@
 background-color: #e44e3f !important;
 }
 
-#menuText{
-    color: #aeadad;
+#menu-text{
     font-weight: 600;
+    font-size: 12px;
+}
+
+#menu-title{
+    font-size: 14px;
+}
+
+.dish-card{
+
+}
+
+.dish-image{
+    /* width: 100px;
+    height: 100px; */
+    /* object-fit: cover;
+    border: 2px solid rgb(212, 78, 25); */
 }
