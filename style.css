@@ -31,7 +31,6 @@
 }
 
 .btn-outline-primary{
-    /* background-color: #7db643 ; */
     border: 2px solid #7db643;
     color: #7db643;
     cursor: pointer;
@@ -64,13 +63,29 @@ background-color: #e44e3f !important;
     font-size: 14px;
 }
 
-.dish-card{
-
+.cart-btn{
+    font-size: 12px;
+    height: fit-content;
 }
 
-.dish-image{
-    /* width: 100px;
-    height: 100px; */
-    /* object-fit: cover;
-    border: 2px solid rgb(212, 78, 25); */
+#checkout{
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer; 
+    transition: transform 0.3s ease-in-out;
+}
+
+#checkout:active{
+    opacity: 0.5;
+}
+
+/* .dish-image{
+    height: 150px;
+    width: 150px;
+    max-width: 100px;
+} */
+
+body {
+    overflow-x: hidden;
 }

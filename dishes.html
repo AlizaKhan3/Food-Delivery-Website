@@ -57,11 +57,11 @@
 
         <div class="row px-2 py-4">
             <div class="col">
-                <div class="card mb-3 w-100">
+                <div class="card mb-3 p-2 w-100">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="https://images.deliveryhero.io/image/fd-pk/LH/n1zj-listing.jpg?width=400&height=225"
-                                class="img-fluid rounded-start w-100" alt="...">
+                                class="img-fluid rounded-start w-100" style="border-radius: 1rem;" alt="...">
                             <div class="card-img-overlay">
                                 <!-- <h5 class="card-title">Avail discounts</h5> -->
                                 <button type="button" class="btn btn-primary" id="liveToastBtn">Avail 25% Off</button>
@@ -107,28 +107,112 @@
                 <div class="card dish-card mb-3 w-100">
                     <div class="row g-0">
                         <div class="col-2">
-                            <img src="images/images.jpeg" class="img-fluid rounded-start dish-image" alt="...">
+                            <img src="images/Crispy chicken burger.webp" class="img-fluid rounded-start dish-image" alt="...">
                         </div>
                         <div class="col">
                             <div class="card-body">
-                                <h5 class="card-title" id="menu-title" style="font-weight: bolder;">Zinger Burger</h5>
-                                <p class="card-text my-2" id="menu-text"  style="color: #787878;"> crispy chicken piece, sandwiched between full layered cheese, tomatoes, lettuce, onions and mushroom sauce.</p>
+                                <h5 class="card-title" id="menu-title" style="font-weight: bolder;">Zinger Burger
+                                </h5>
+                                <p class="card-text my-2" id="menu-text" style="color: #787878;"> crispy chicken
+                                    piece, sandwiched between full layered cheese, tomatoes, lettuce, onions and
+                                    mushroom sauce.</p>
                                 <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"> 799 Rs</p>
-                                <button class="btn btn-primary" type="submit">Add to Cart</button>
                                 </p>
                             </div>
+                        </div>
+                        <div class="col d-flex justify-content-end align-items-center mx-2">
+                            <button class="btn btn-primary cart-btn" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card dish-card mb-3 w-100">
+                    <div class="row g-0">
+                        <div class="col-2">
+                            <img src="images/Crispy chicken burger.webp" class="img-fluid rounded-start dish-image" alt="...">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title" id="menu-title" style="font-weight: bolder;">Zinger Burger
+                                </h5>
+                                <p class="card-text my-2" id="menu-text" style="color: #787878;"> crispy chicken
+                                    piece, sandwiched between full layered cheese, tomatoes, lettuce, onions and
+                                    mushroom sauce.</p>
+                                <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"> 799 Rs</p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class=" col d-flex justify-content-end align-items-center mx-2">
+                            <button class="btn btn-primary cart-btn" type="submit">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card dish-card mb-3 w-100">
+                    <div class="row g-0">
+                        <div class="col-2">
+                            <img src="images/Crispy chicken burger.webp" class="img-fluid rounded-start dish-image" alt="...">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title" id="menu-title" style="font-weight: bolder;">Zinger Burger
+                                </h5>
+                                <p class="card-text my-2" id="menu-text" style="color: #787878;"> crispy chicken
+                                    piece, sandwiched between full layered cheese, tomatoes, lettuce, onions and
+                                    mushroom sauce.</p>
+                                <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"> 799 Rs</p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class=" col d-flex justify-content-end align-items-center mx-2">
+                            <button class="btn btn-primary cart-btn" type="submit">Add to Cart</button>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Checkout -->
+            <div class="col-4" style="background-color: crimson;"> 
+                <div class="card text-center">
+                    <div class="card-header">
+                        <b><i class="fa-solid fa-cart-shopping mx-2"></i>Cart </b>
+                    </div>
+                    <div class="card-body">
+                    <!-- When there are no items -->
+                        <!-- <p class="card-text">Add items to checkout.</p> -->
+                    <!-- When items are added to cart -->
+                    <div class="card dish-card mb-3 w-100">
+                        <div class="row g-0">
+                            <div class="col-2">
+                                <img src="images/Crispy chicken burger.webp" class="img-fluid rounded-start dish-image" alt="...">
+                            </div>
+                            <div class="col">
+                                <div class="card-body">
+                                    <h5 class="card-title" id="menu-title" style="font-weight: bolder;">Zinger Burger
+                                    </h5>
+                                    <p class="card-text my-2" id="menu-text" style="color: #787878;"> crispy chicken
+</p>
+                                    <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"> 799 Rs</p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class=" col d-flex justify-content-end align-items-center mx-2">
+                                <button class="btn btn-primary cart-btn" type="submit">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
 
 
-
-            <div class="col-4" style="background-color: crimson;">
-            </div>
+                    </div>
+                    <div class="card-footer" style="background-color: #e44e3f;">
+                       <a href="#" id="checkout">Checkout</a>
+                    </div> 
+                  </div>
+             </div>
         </div>
-
+        
     </div>
+
 
     <script src="app.js"></script>
 </body>
