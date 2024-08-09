@@ -7,3 +7,4 @@ if (toastTrigger) {
     toastBootstrap.show()
   })
 }
+
