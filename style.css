@@ -94,3 +94,14 @@ body {
     justify-content: center;
     padding: 12px;
 }
+
+.social-icons{
+    font-size: 1rem;
+    color: #e44e3f;
+}
+
+.contact{
+    font-size: 1rem;
+    color: #e44e3f;
+    font-weight: 600;
+}
