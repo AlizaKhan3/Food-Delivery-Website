@@ -8,7 +8,7 @@ if (toastTrigger) {
   })
 }
 
-import {auth, signInWithEmailAndPassword} from "./firebase.js"
+import {auth, signInWithEmailAndPassword} from "./Javascript files/firebase.js"
 
 const login = () => {
   const email = document.getElementById("email");
@@ -19,6 +19,10 @@ const login = () => {
   signInWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
     const user = userCredential.user;
+    if (user.email == "admin@gmail.com") {
+      window.location.href = "./dashboard.html";
+    }
+    
     console.log(user);
   })
   .catch((error) => {
