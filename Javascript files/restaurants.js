@@ -1,3 +1,4 @@
+import {getStorage, ref, uploadBytesResumable, getDownloadURL} from "./firebase"
 const restaurantImage = document.getElementById("restaurant-image");
 const selectedImage = document.getElementById("selected-image");
 const addRestaurant = document.getElementById("add-restaurant");
@@ -14,8 +15,7 @@ addRestaurant.addEventListener("click", () => {
     const name = document.getElementById("restaurant-name");
     const address = document.getElementById("restaurant-address");
     const image = document.getElementById("restaurant-image");
-
-    console.log()
+    console.log(name.value, address.value, file)
 })
 
 

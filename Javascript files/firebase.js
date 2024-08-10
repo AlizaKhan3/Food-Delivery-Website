@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
 
+      
 const firebaseConfig = {
   apiKey: "AIzaSyADIRUGIYrAtNwt3HRrT4WU2pLRFaKxivk",
   authDomain: "onifood-pk.firebaseapp.com",
@@ -12,9 +14,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const storage = getStorage(app);
 
 export{
   auth,
   signInWithEmailAndPassword,
-  onAuthStateChanged
+  onAuthStateChanged,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL
 }
