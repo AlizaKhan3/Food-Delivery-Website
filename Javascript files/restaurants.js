@@ -1,4 +1,4 @@
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "./firebase"
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "./firebase.js"
 const restaurantImage = document.getElementById("restaurant-image");
 const selectedImage = document.getElementById("selected-image");
 
@@ -44,12 +44,12 @@ let uploadFile = (file, name) => {
     })
 }
 
-const submitRestaurant = document.getElementById("add-restaurant");
+const addRestaurant = document.getElementById("add-restaurant");
 
 addRestaurant.addEventListener("click", async () => {
     const name = document.getElementById("restaurant-name");
     const address = document.getElementById("restaurant-address");
     const image = await uploadFile(file, name.value);
 
-    console.log("image", image);
+    // console.log("image", image);
 })
