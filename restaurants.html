@@ -85,18 +85,6 @@
                                 <div class="mb-3">
                                   <img class="selected-logo" width="auto" height="100" src="" id="selected-logo" alt="">
                                 </div>
-
-
-
-
-                                <!-- <div class="mb-3">
-                                    <label for="formFile" class="form-label">Restaurant logo</label>
-                                    <input class="form-control" type="file" id="restaurant-logo">
-                                </div>
-                                <div class="mb-3">
-                                    <img class="slected-logo" width="100" height="100px" id="selected-logo" src=""
-                                        alt="">
-                                </div> -->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" id="close-btn" class="btn btn-secondary"
@@ -114,8 +102,10 @@
                 </div>
             </div>
         </div>
-        <div class="row px-2 py-4">
-            <table class="table">
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -124,18 +114,14 @@
                         <th scope="col">Address</th>
                     </tr> 
                 </thead>
-                <tbody id="res-list">
-
-                </tbody>
+                <tbody id="res-list"></tbody>
             </table>
+            </div>
+          </div>
         </div>
     </div>
-
-
-
     <script src="./Javascript files/restaurants.js" type="module"></script>
     <script src="./Javascript files/firebase.js" type="module"></script>
     <script src="app.js" type="module"></script>
 </body>
-
 </html>
