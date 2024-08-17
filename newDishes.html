@@ -55,30 +55,53 @@
         <div class="col-12 my-3">
           <div class="d-flex justify-content-between">
             <h1>Restaurant Dishes Data</h1>
-           <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Add New Dish
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add dishes here</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Restaurant name</label>
+                      <select id="restaurant-name" class="form-select" aria-label="Default select example"></select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Dish name</label>
+                      <input type="text" class="form-control" id="dish-name" placeholder="Dish Name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Dish Price</label>
+                      <input type="text" class="form-control" id="dish-price" placeholder="Dish Price">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Serving</label>
+                      <select id="dish-serving" class="form-select" aria-label="Default select example">
+                        <option selected>Select option</option>
+                        <option value="1"> 1 Person</option>
+                        <option value="2-4"> 2-3 Persons</option>
+                        <option value="3-4"> 3-4 Persons</option>
+                        <option value="4-5"> 4-5 Persons</option>
+                        <option value="5-7"> 5-7 Persons</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label">Dish Image</label>
+                      <input class="form-control" type="file" id="dish-image">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add-dish">Add Dish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -110,8 +133,6 @@
   </div>
   </div>
   </div>
-
-  <script src="Javascript files/firebase.js" type="module"></script>
   <script src="Javascript files/addNewDishes.js" type="module"></script>
 </body>
 
