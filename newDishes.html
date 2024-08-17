@@ -20,8 +20,6 @@
 
 <body>
   <div>
-
-
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -34,19 +32,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="dashboard.html">Dashboard</a>
+              <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="newDishes.html">Dish</a>
+              <a class="nav-link" aria-current="page" href="newDishes.html">Dishes</a>
             </li>
-            <!-- <li class="nav-item">
-                  <a class="nav-link" href="#restaurants">Price</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Serving</a>
-                  </li> -->
             <li class="nav-item">
-              <a class="nav-link" href="restaurants.html">Restaurant</a>
+              <a class="nav-link" href="#">Orders</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="restaurants.html">Restaurants</a>
             </li>
           </ul>
           <div class="d-flex gap-2" role="search" style="font-weight: 600;">
@@ -55,7 +50,6 @@
         </div>
       </div>
     </nav>
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 my-3">
@@ -64,37 +58,19 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#restaurantModal">
               Add New Dishes
             </button>
-
-            <div class="modal fade" id="restaurantModal" tabindex="-1" aria-labelledby="restaurantModal"
-              aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="restaurantModal">Add New Restaurant Here.</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Restaurant Name</label>
-                      <input type="text" class="form-control" id="restaurant-name">
-                    </div>
-                    <div class="mb-3">
-                      <select id="restaurant-name" class="form-select" aria-label="Default select example">
-                        <!-- <option value="" selected> Select Restaurant</option> -->
-                      </select>
-                    </div>
-                    <!-- <div class="input-group mb-3">
-              <input type="file" class="form-control" id="restaurant-image">
-              <label class="input-group-text" for="inputGroupFile02">Upload Restaurant Image</label>
-            </div> -->
-                    <div class="mb-3">
-                      <img class="selected-image" width="auto" height="100" src="" id="selected-image" alt="">
-                    </div>
+                    ...
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                      id="close-btn">Close</button>
-                    <button type="button" class="btn btn-primary" id="add-restaurant">Add Dish</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
                 </div>
               </div>
@@ -132,7 +108,8 @@
   </div>
   </div>
 
-  <script src="./Javascript files/addNewDishes.js" type="module"></script>
+  <script src="Javascript files/firebase.js" type="module"></script>
+  <script src="Javascript files/addNewDishes.js" type="module"></script>
 </body>
 
 </html>
