@@ -82,11 +82,12 @@ addDish.addEventListener('click', async () => {
     const dishPrice = document.getElementById("dish-price");
     const dishServing = document.getElementById("dish-serving");
     const dishImage = document.getElementById("dish-image");
-    const image = await uploadFile(dishImage, dishName.value);
     const spinner = document.getElementById("dish-spinner");
     const closebtn = document.getElementById("close-btn");
-
     spinner.style.display = "block";
+
+    const image = await uploadFile(dishImage.files[0], dishName.value);
+
     const dishDetail = {
         restaurant: restName.value,
         name: dishName.value,
@@ -102,7 +103,7 @@ addDish.addEventListener('click', async () => {
     dishImage.value = "";
     spinner.style.display = "none";
     closebtn.click();
-
+    getAllDishes();
     console.log(docRef);
 })
 
