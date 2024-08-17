@@ -13,15 +13,14 @@
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/Food delivery app logo design.jpeg" type="image/x-icon">
-  <title>Admin - Order Details</title>
+  <title>Admin - Add New Restaurant</title>
 </head>
 
 <body>
   <div>
-
-
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -58,15 +57,15 @@
         <div class="col-12 my-3">
           <div class="d-flex justify-content-between">
             <h1>Admin Dashboard</h1>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#restaurantModal">
               Add New Restaurants
             </button>
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="restaurantModal" tabindex="-1" aria-labelledby="restaurantModal" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Restaurant Here.</h1>
+                    <h1 class="modal-title fs-5" id="restaurantModal">Add New Restaurant Here.</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -87,7 +86,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close-btn">Close</button>
                     <button type="button" class="btn btn-primary" id="add-restaurant">Add Restaurant</button>
                   </div>
                 </div>
@@ -108,10 +107,10 @@
                   <th scope="col">Location</th>
                 </tr>
               </thead>
-              <tbody>
-                <td>California</td>
+              <tbody id="res-list">
+                <!-- <td>California</td>
                 <td>Pizza,burger</td>
-                <td>gulistan e johar</td>
+                <td>gulistan e johar</td> -->
               </tbody>
             </table>
           </div>
@@ -120,9 +119,11 @@
     </div>
   </div>
 
-  <script src="app.js" type="module"></script>
-  <script src="./Javascript files/restaurants.js" type="module"></script>
-
+  
+  <!-- <script src="https://cdn.firebase.com/libs/firebasejs/10.12.5/firebase.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js"></script> -->
+<script src="app.js" type="module"></script>
+<script src="./Javascript files/restaurants.js" type="module"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, signOut, sendEmailVerification, googleProvider, facebookProvider, facebookAuthProvider, RecaptchaVerifier, SignInWithPhoneNumber, GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
+import { doc, setDoc, getFirestore} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
       
 const firebaseConfig = {
@@ -11,10 +12,14 @@ const firebaseConfig = {
   messagingSenderId: "119235898205",
   appId: "1:119235898205:web:9a6ca0302608a92a7556b4"
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+// auth.languageCode = 'it';
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new facebookAuthProvider();
 const storage = getStorage(app);
-
 
 export{
   auth,
@@ -23,5 +28,21 @@ export{
   getStorage,
   ref,
   uploadBytesResumable,
-  getDownloadURL
+  getDownloadURL,
+  createUserWithEmailAndPassword,
+  RecaptchaVerifier,
+  SignInWithPhoneNumber,
+  GoogleAuthProvider,
+  googleProvider,
+  signInWithPopup,
+  facebookProvider,
+  facebookAuthProvider,
+  doc,
+  setDoc,
+  db
+  // collection,
+  // addDoc,
+  // query,
+  // where,
+  // getDocs
 }
