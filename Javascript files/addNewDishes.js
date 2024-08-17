@@ -18,11 +18,5 @@ const getAllRestaurants = async () => {
 
 }
 
-let addUserToFirestor = async () => {
-    const data = await setDoc(doc(db, "cities", "LA"), {
-        name: "Los Angeles",
-        state: "CA",
-        country: "USA"
-    })
-}
+
 

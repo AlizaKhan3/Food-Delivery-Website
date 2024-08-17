@@ -1,8 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, createUserWithEmailAndPassword, signOut, sendEmailVerification, googleProvider, facebookProvider, facebookAuthProvider, RecaptchaVerifier, SignInWithPhoneNumber, GoogleAuthProvider,signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
-import { doc, setDoc, getFirestore} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
-
+import { doc, setDoc, getFirestore, addDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+// createUserWithEmailAndPassword, signOut, sendEmailVerification, googleProvider, facebookProvider, facebookAuthProvider, RecaptchaVerifier, SignInWithPhoneNumber, GoogleAuthProvider,signInWithPopup 
       
 const firebaseConfig = {
   apiKey: "AIzaSyDzpnkFF0DiZ32MVAUaMiTEu83A7QAUnx8",
@@ -17,8 +17,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 // auth.languageCode = 'it';
-const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new facebookAuthProvider();
+// const googleProvider = new GoogleAuthProvider();
+// const facebookProvider = new facebookAuthProvider();
 const storage = getStorage(app);
 
 export{
@@ -29,20 +29,21 @@ export{
   ref,
   uploadBytesResumable,
   getDownloadURL,
-  createUserWithEmailAndPassword,
-  RecaptchaVerifier,
-  SignInWithPhoneNumber,
-  GoogleAuthProvider,
-  googleProvider,
-  signInWithPopup,
-  facebookProvider,
-  facebookAuthProvider,
+  // createUserWithEmailAndPassword,
+  // RecaptchaVerifier,
+  // SignInWithPhoneNumber,
+  // GoogleAuthProvider,
+  // googleProvider,
+  // signInWithPopup,
+  // facebookProvider,
+  // facebookAuthProvider,
   doc,
+  storage,
   setDoc,
-  db
-  // collection,
-  // addDoc,
+  db,
+  collection,
+  addDoc,
   // query,
   // where,
-  // getDocs
+  getDocs
 }
