@@ -100,6 +100,42 @@ body {
     color: #e44e3f;
 }
 
-.selected-image{
+.selected-logo {
     display: none;
+}
+
+.spinner-border {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+}
+
+#submit-restaurant,
+#addDish {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#restaurant-spinner,
+#dish-spinner {
+    display: none;
+}
+
+.res-logo-image,
+.dish-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.page-spinner {
+    width: 200px;
+    height: 200px;
 }

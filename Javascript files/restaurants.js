@@ -127,9 +127,7 @@ const getAllRestaurants = async () => {
 
 getAllRestaurants()
 
-
 const submitRestaurant = document.getElementById("submit-restaurant");
-
 
 submitRestaurant && submitRestaurant.addEventListener('click', async () => {
     const closeBtn = document.getElementById("close-btn")
@@ -151,7 +149,6 @@ submitRestaurant && submitRestaurant.addEventListener('click', async () => {
     console.log("Document written with ID: ", docRef.id);
     getAllRestaurants();
     closeBtn.click()
-    // closeBtn.click();
     Swal.fire("Restaurant added successfully!");
 })
 
