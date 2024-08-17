@@ -139,3 +139,14 @@ body {
     width: 200px;
     height: 200px;
 }
+
+.total > div {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 10px;
+    background-color: #dadce0;
+}
+.icon {
+    font-size: 2em;
+    color: #e44e3f;
+}
