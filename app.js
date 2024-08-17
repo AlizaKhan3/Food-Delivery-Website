@@ -8,7 +8,7 @@ if (toastTrigger) {
   })
 }
 
-import {auth, signInWithEmailAndPassword} from "./Javascript files/firebase.js"
+import {auth, signInWithEmailAndPassword, collection, db, getDocs} from "./Javascript files/firebase.js"
 
 const login = () => {
   const email = document.getElementById("email");
@@ -34,3 +34,34 @@ const login = () => {
  
 const loginBtn = document.getElementById("loginBtn");
 loginBtn && loginBtn.addEventListener('click', login);
+
+
+
+// Show restaurants on home page
+const getAllRestaurants = async () => {
+  const resList = document.getElementById("res-list");
+  resList.innerHTML = "";
+  const q = collection(db, "restaurants");
+  const querySnapshot = await getDocs(q);
+  let index = 0;
+  querySnapshot.forEach((doc) => {
+      console.log(doc.id, " => ", doc.data());
+      // index++
+      resList.innerHTML += `
+                 <div class="col">
+          <div class="card h-100">
+           <a href="dishes.html"> <img src="${doc.data().image}"
+            class="card-img-top" alt="..."></a>
+            <div class="card-body">
+              <h5 class="card-title">${doc.data().name}</h5>
+              <p class="card-text">
+                <span class="badge text-bg-primary">Fastfood</span>
+                <span class="badge text-bg-primary">Drinks</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      `
+  });
+}
+getAllRestaurants();
