@@ -3,7 +3,7 @@ import { db, collection, getDocs, where, query } from "./firebase.js"
 const getAllDishes = async () => {
     const allDishes = document.getElementById("all-dishes");
     const q = collection(db, "dishes");
-    const querySnapshot = await getDocs(q);     
+    const querySnapshot = await getDocs(q);
     allDishes.innerHTML = ``
     querySnapshot.forEach((doc) => {
         allDishes.innerHTML += `
@@ -16,10 +16,9 @@ const getAllDishes = async () => {
                             <div class="col">
                                 <div class="card-body">
                                     <h5 class="card-title" id="menu-title" style="font-weight: bolder;">${doc.data().name}</h5>                          
-                                    <p class="card-text my-2" id="menu-text" style="color: #787878;"> crispy chicken
-                                        piece, sandwiched between full layered cheese, tomatoes, lettuce, onions and
-                                        mushroom sauce.</p>
-                                    <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"> 799 Rs</p>
+                                    <p class="card-text my-2" id="menu-text" style="color: #787878;">${doc.data().description}</p>
+                                    <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().serving}</p>
+                                    <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().price}</p>
                                     </p>
                                 </div>
                             </div>
