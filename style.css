@@ -129,6 +129,12 @@ body {
     border-radius: 15px;
 }
 
+#rest-display-card{
+    text-decoration: none;
+    color: black;
+    /* border: none;
+    outline: none; */
+}
 .card-img-top {
     width: 100%;
     height: 200px;
