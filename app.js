@@ -1,3 +1,5 @@
+import {auth, signInWithEmailAndPassword, collection, db, getDocs} from "./Javascript files/firebase.js"
+
 const toastTrigger = document.getElementById('liveToastBtn')
 const toastLiveExample = document.getElementById('liveToast')
 
@@ -7,8 +9,6 @@ if (toastTrigger) {
     toastBootstrap.show()
   })
 }
-
-import {auth, signInWithEmailAndPassword, collection, db, getDocs} from "./Javascript files/firebase.js"
 
 const login = () => {
   const email = document.getElementById("email");
@@ -50,10 +50,10 @@ const getAllRestaurants = async () => {
       resList.innerHTML += `
                  <div class="col">
           <div class="card h-100">
-           <a href="dishes.html"> <img src="${doc.data().image}"
+           <a  href="dishes.html?restaurant=${doc.id}> <img src="${doc.data().image}"
             class="card-img-top" alt="..."></a>
             <div class="card-body">
-              <h5 class="card-title">${doc.data().name}</h5>
+              <a href="dishes.html?restaurant=${doc.id}" id="rest-display-card"><h5 class="card-title">${doc.data().name}</h5></a>
               <p class="card-text">
                 <span class="badge text-bg-primary">Fastfood</span>
                 <span class="badge text-bg-primary">Drinks</span>
