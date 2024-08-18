@@ -123,11 +123,12 @@ body {
 }
 
 .res-logo-image,
-.dish-image {
+.dish-image{
     width: 30px;
     height: 30px;
     border-radius: 15px;
 }
+
 
 #rest-display-card{
     text-decoration: none;
@@ -155,4 +156,9 @@ body {
 .icon {
     font-size: 2em;
     color: #e44e3f;
+}
+
+.dish-image{
+    height: 100px;
+    width: 100px;
 }
