@@ -44,22 +44,17 @@ const getAllRestaurants = async () => {
         restSelect.innerHTML += `<option selected>Select Restaurant</option>`
         querySnapshot.forEach((doc) => {
             restaurants.push({ ...doc.data(), id: doc.id });
-            // console.log(doc.id, " => ", doc.data());
             index++;
-            restSelect.innerHTML += `
-            <option value="${doc.id}">${doc.data().name}</option>
-            `
+            restSelect.innerHTML += `<option value="${doc.id}">${doc.data().name}</option>`
         });
         return new Promise((resolve, reject) => {
             resolve(restaurants);
         });
-        // allRestaurants = restaurants;
-        // console.log(restaurants);
     } catch (error) {
         console.log("error", error);
     }
 }
-getAllRestaurants();
+// getAllRestaurants();
 
 const getAllDishes = async () => {
     const restaurants = await getAllRestaurants();
@@ -71,8 +66,8 @@ const getAllDishes = async () => {
     for (let i = 0; i < restaurants.length; i++) {
         restaurantNames [restaurants[i].id] = restaurants[i].name;
     }
-    console.log(restaurantNames);
-    // console.log("all Restaurants name through uid", restaurants);
+    // console.log(restaurantNames);
+    // // console.log("all Restaurants name through uid", restaurants);
     allDishes.innerHTML = ``
     querySnapshot.forEach((doc) => {
         index++;
