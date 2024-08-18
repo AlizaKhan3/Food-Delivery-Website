@@ -82,6 +82,7 @@ const getAllDishes = async () => {
             <th scope="row">${index}</th>
             <td><img src="${doc.data().image}" class="dish-image" alt=""></td>
             <td>${doc.data().name}</td>
+            <td>${doc.data().description}</td>
             <td>${doc.data().price}</td>
             <td>${doc.data().serving}</td>
             <td>${restaurantNames[doc.data().restaurant]}</td>
@@ -95,6 +96,7 @@ const addDish = document.getElementById("addDish");
 addDish.addEventListener('click', async () => {
     const restName = document.getElementById("restaurant-name");
     const dishName = document.getElementById("dish-name");
+    const dishDescription = document.getElementById("dish-description");
     const dishPrice = document.getElementById("dish-price");
     const dishServing = document.getElementById("dish-serving");
     const dishImage = document.getElementById("dish-image");
@@ -107,6 +109,7 @@ addDish.addEventListener('click', async () => {
     const dishDetail = {
         restaurant: restName.value,
         name: dishName.value,
+        description: dishDescription.value,
         price: dishPrice.value,
         serving: dishServing.value,
         image
@@ -114,6 +117,7 @@ addDish.addEventListener('click', async () => {
     const docRef = await addDoc(collection(db, "dishes"), dishDetail);
     restName.value = "";
     dishName.value = "";
+    dishDescription.value = ""
     dishPrice.value = "";
     dishServing.value = "";
     dishImage.value = "";
