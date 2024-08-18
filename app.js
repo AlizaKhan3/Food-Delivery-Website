@@ -43,9 +43,9 @@ const getAllRestaurants = async () => {
   resList.innerHTML = "";
   const q = collection(db, "restaurants");
   const querySnapshot = await getDocs(q);
-  let index = 0;
+  // let index = 0;
   querySnapshot.forEach((doc) => {
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
       // index++
       resList.innerHTML += `
                  <div class="col">
