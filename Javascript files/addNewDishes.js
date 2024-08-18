@@ -32,79 +32,89 @@ let uploadFile = (file, name) => {
     })
 }
 
+//to get restaurants in dishes function
+// let allRestaurants = [];  //User Promise OR global variable OR use call back method
 
 const getAllRestaurants = async () => {
-    const restSelect = document.getElementById("restaurant-name");
-    const q = collection(db, "restaurants");
-    const querySnapshot = await getDocs(q);
-    let index = 0;
-    restSelect.innerHTML += `<option selected>Select Restaurant</option>`
-    querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
-        index++;
-        restSelect.innerHTML += `
-        <option value="${doc.id}">${doc.data().name}</option>
-        `
-    })
+    try {
+        const q = collection(db, "restaurants");
+        const querySnapshot = await getDocs(q);
+        const restSelect = document.getElementById("restaurant-name");
+        let index = 0;
+        let restaurants = [];
+        restSelect.innerHTML += `<option selected>Select Restaurant</option>`
+        querySnapshot.forEach((doc) => {
+            restaurants.push({ ...doc.data(), id: doc.id });
+            console.log(doc.id, " => ", doc.data());
+            index++;
+            restSelect.innerHTML += `
+            <option value="${doc.id}">${doc.data().name}</option>
+            `
+        });
+        return new Promise((resolve, reject) => {
+            resolve(restaurants);
+        });
+        // allRestaurants = restaurants;
+        // console.log(restaurants);
+    } catch (error) {
+        console.log("error", error);
+    }
 }
+    getAllRestaurants();
 
-getAllRestaurants();
-
-
-const getAllDishes = async () => {
-    const allDishes = document.getElementById("all-dishes");
-    const q = collection(db, "dishes");
-    const querySnapshot = await getDocs(q);
-    let index = 0;
-    allDishes.innerHTML += ``
-    querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
-        index++;
-        allDishes.innerHTML += `
-         <td>01</td>
+    const getAllDishes = async () => {
+        const restaurants = await getAllRestaurants();
+        const allDishes = document.getElementById("all-dishes");
+        const q = collection(db, "dishes");
+        const querySnapshot = await getDocs(q);
+        let index = 0;
+        console.log("all Restaurants name through uid", restaurants);
+        allDishes.innerHTML = ``
+        querySnapshot.forEach((doc) => {
+            index++;
+            const restaurantName = restaurants.filter(v => v.id === doc.data().restaurant);
+            console.log("restaurant name", restaurantName[0].name);
+            allDishes.innerHTML += `
+            <th scope="row">${index}</th>
             <td><img src="${doc.data().image}" class="dish-image" alt=""></td>
             <td>${doc.data().name}</td>
             <td>${doc.data().price}</td>
             <td>${doc.data().serving}</td>
-            <td>${doc.data().restaurant}</td>
+            <td>${restaurantName[0].name}</td>
         `
-    })
-}
-
-getAllDishes();
-
-
-
-const addDish = document.getElementById("addDish");
-addDish.addEventListener('click', async () => {
-    const restName = document.getElementById("restaurant-name");
-    const dishName = document.getElementById("dish-name");
-    const dishPrice = document.getElementById("dish-price");
-    const dishServing = document.getElementById("dish-serving");
-    const dishImage = document.getElementById("dish-image");
-    const spinner = document.getElementById("dish-spinner");
-    const closebtn = document.getElementById("close-btn");
-    spinner.style.display = "block";
-
-    const image = await uploadFile(dishImage.files[0], dishName.value);
-
-    const dishDetail = {
-        restaurant: restName.value,
-        name: dishName.value,
-        price: dishPrice.value,
-        serving: dishServing.value,
-        image
+        })
     }
-    const docRef = await addDoc(collection(db, "dishes"), dishDetail);
-    restName.value = "";
-    dishName.value = "";
-    dishPrice.value = "";
-    dishServing.value = "";
-    dishImage.value = "";
-    spinner.style.display = "none";
-    closebtn.click();
+
     getAllDishes();
-    console.log(docRef);
-})
 
+    const addDish = document.getElementById("addDish");
+    addDish.addEventListener('click', async () => {
+        const restName = document.getElementById("restaurant-name");
+        const dishName = document.getElementById("dish-name");
+        const dishPrice = document.getElementById("dish-price");
+        const dishServing = document.getElementById("dish-serving");
+        const dishImage = document.getElementById("dish-image");
+        const spinner = document.getElementById("dish-spinner");
+        const closebtn = document.getElementById("close-btn");
+        spinner.style.display = "block";
 
+        const image = await uploadFile(dishImage.files[0], dishName.value);
+
+        const dishDetail = {
+            restaurant: restName.value,
+            name: dishName.value,
+            price: dishPrice.value,
+            serving: dishServing.value,
+            image
+        }
+        const docRef = await addDoc(collection(db, "dishes"), dishDetail);
+        restName.value = "";
+        dishName.value = "";
+        dishPrice.value = "";
+        dishServing.value = "";
+        dishImage.value = "";
+        spinner.style.display = "none";
+        closebtn.click();
+        getAllDishes();
+        console.log(docRef);
+    });
