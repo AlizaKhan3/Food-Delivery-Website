@@ -86,7 +86,7 @@ submitRestaurant && submitRestaurant.addEventListener('click', async () => {
     console.log("Document written with ID: ", docRef.id);
     getAllRestaurants();
     closeBtn.click()
-    Swal.fire("Restaurant added successfully!");
+    Swal.fire("Restaurant added Successfully!");
 })
 
 export { uploadFile };
