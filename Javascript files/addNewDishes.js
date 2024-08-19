@@ -119,5 +119,6 @@ addDish.addEventListener('click', async () => {
     spinner.style.display = "none";
     closebtn.click();
     getAllDishes();
-    console.log(docRef); 2
+    console.log(docRef);
+    Swal.fire("Restaurant Dish added Successfully!");
 });
