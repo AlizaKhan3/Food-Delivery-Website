@@ -130,9 +130,10 @@ body {
 }
 
 
-#rest-display-card{
-    text-decoration: none;
+#rest-display-card, .card-title, a {
+    text-decoration: none !important;
     color: black;
+    
     /* border: none;
     outline: none; */
 }
@@ -159,6 +160,12 @@ body {
 }
 
 .dish-image{
+    height: 50px;
+    width: 50px;
+}
+
+.menu-image{
     height: 100px;
     width: 100px;
+    border-radius: 10%;
 }
