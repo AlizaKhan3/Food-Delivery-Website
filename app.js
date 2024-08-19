@@ -38,44 +38,14 @@ loginBtn && loginBtn.addEventListener('click', login);
 
 
 // Show restaurants on home page
-// const getAllRestaurants = async () => {
-//   const resList = document.getElementById("res-list");
-//   resList.innerHTML = "";
-//   const q = collection(db, "restaurants");
-//   const querySnapshot = await getDocs(q);
-//   // let index = 0;
-//   querySnapshot.forEach((doc) => {
-//     // console.log(doc.id, " => ", doc.data());
-//     // index++
-//     resList.innerHTML += `
-//                  <div class="col">
-//           <div class="card h-100">
-//            <a  href="dishes.html?restaurant=${doc.id}> <img src="${doc.data().image}" class="card-img-top" alt="..."/></a>
-//             <div class="card-body">
-//               <a href="dishes.html?restaurant=${doc.id}" id="rest-display-card"><h5 class="card-title">${doc.data().name}</h5></a>
-//               <p class="card-text">
-//                 <span class="badge text-bg-primary">Fastfood</span>
-//                 <span class="badge text-bg-primary">Drinks</span>
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-//       `
-//   });
-// }
-// getAllRestaurants();
-
-
-
-
-
 const getAllRestaurants = async () => {
+  const pageSpinner = document.getElementById("page-spinner")
   const resList = document.getElementById("res-list");
   resList.innerHTML = "";
   const q = collection(db, "restaurants");
   const querySnapshot = await getDocs(q);
   let index = 0;
-  // pageSpinner.style.display = "none";
+  pageSpinner.style.display = "none";
   querySnapshot.forEach((doc) => {
     console.log(doc.id, " => ", doc.data());
     resList.innerHTML += `
