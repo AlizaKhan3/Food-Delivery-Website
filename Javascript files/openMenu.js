@@ -1,8 +1,12 @@
 import { db, collection, getDocs, where, query, doc, getDoc } from "./firebase.js"
 
 var urlParams = new URLSearchParams(window.location.search);
+let pageSpinner = document.getElementById("page-spinner");
+let mainContent = document.getElementById("main-content");
+
 
 const getRestaurantDetails = async () => {
+    const resToast = document.getElementById("res-toast");
     const resName = document.getElementById("res-name");
     const resAddress = document.getElementById("res-address");
     const resImage = document.getElementById("res-image");
@@ -11,6 +15,7 @@ const getRestaurantDetails = async () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
+        resToast.innerHTML = docSnap.data().name;
         resName.innerHTML = docSnap.data().name;
         resAddress.innerHTML = docSnap.data().address;
         resImage.src = docSnap.data().image;
@@ -28,6 +33,8 @@ const getAllDishes = async () => {
     console.log(urlParams.get('restaurant'))
 
     const querySnapshot = await getDocs(q);
+    pageSpinner.style.display = "none";
+    mainContent.style.display = "block";
     allDishes.innerHTML = ``
     querySnapshot.forEach((doc) => {
         allDishes.innerHTML += `
