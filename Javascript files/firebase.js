@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
-import { doc, setDoc, getFirestore, addDoc, getDocs, collection, where, query} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { doc, setDoc, getFirestore, addDoc, getDocs, getDoc, collection, where, query} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 // createUserWithEmailAndPassword, signOut, sendEmailVerification, googleProvider, facebookProvider, facebookAuthProvider, RecaptchaVerifier, SignInWithPhoneNumber, GoogleAuthProvider,signInWithPopup 
       
 const firebaseConfig = {
@@ -45,5 +45,6 @@ export{
   addDoc,
   query,
   where,
+  getDoc,
   getDocs
 }
