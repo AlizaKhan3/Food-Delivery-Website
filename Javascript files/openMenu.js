@@ -22,8 +22,6 @@ const getRestaurantDetails = async () => {
 }
 getRestaurantDetails();
 
-
-
 const getAllDishes = async () => {
     const allDishes = document.getElementById("all-dishes");
     const q = query(collection(db, "dishes"), where ('restaurant' , "==", urlParams.get('restaurant')));
