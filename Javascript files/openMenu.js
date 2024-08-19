@@ -1,7 +1,30 @@
-import { db, collection, getDocs, where, query } from "./firebase.js"
+import { db, collection, getDocs, where, query, doc, getDoc } from "./firebase.js"
+
+var urlParams = new URLSearchParams(window.location.search);
+
+const getRestaurantDetails = async () => {
+    const resName = document.getElementById("res-name");
+    const resAddress = document.getElementById("res-address");
+    const resImage = document.getElementById("res-image");
+
+    const docRef = doc(db, "restaurants", urlParams.get('restaurant'));
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        resName.innerHTML = docSnap.data().name;
+        resAddress.innerHTML = docSnap.data().address;
+        resImage.src = docSnap.data().image;
+
+        console.log("Document data", docSnap.data());    
+    } else {
+        console.log("No Document data");    
+    }
+}
+getRestaurantDetails();
+
+
 
 const getAllDishes = async () => {
-    var urlParams = new URLSearchParams(window.location.search);
     const allDishes = document.getElementById("all-dishes");
     const q = query(collection(db, "dishes"), where ('restaurant' , "==", urlParams.get('restaurant')));
     console.log(urlParams.get('restaurant'))
@@ -14,11 +37,11 @@ const getAllDishes = async () => {
         <div class="card-body">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
-                    <img class="dish-image"
+                    <img class="menu-image"
                         src="${doc.data().image}" />
                     <div class="p-2">
                         <h5 class="card-title" id="menu-title" style="font-weight: bolder;">${doc.data().name}
-                                    </h5>
+                                     </h5>
                                     <p class="card-text my-2" id="menu-text" style="color: #787878;">${doc.data().description}</p>
                                     <p class="card-text my-2" id="menu-text" style="color: #787878;">${doc.data().serving}</p>
                                     <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().price}</p>
