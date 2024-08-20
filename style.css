@@ -5,8 +5,11 @@
 }
 
 .navbar{
-    height: 80px;
+    position: fixed;
     z-index: 1;
+    width: 100%;
+    height: 80px;
+    /* z-index: 1; */
     background-color: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.12), inset 0 -1px 0 0 #dadce0;
 }
@@ -169,3 +172,140 @@ body {
     width: 100px;
     border-radius: 10%;
 }
+
+
+
+.restaurant-info {
+   position: relative;
+   /* height: 20rem !; */
+    /* margin-bottom: 20px; */
+    /* display: flex; */
+    /* align-items: center; */
+  }
+
+
+/* 
+.restaurant-info {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .restaurant-details {
+    padding: 20px;
+  }
+  
+  .restaurant-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-address {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-contact {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-badges {
+    margin-bottom: 20px;
+  }
+   */
+  .cart-section {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+  }
+  
+  .cart-section .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-section .card-header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cart-section .card-header h5 {
+    margin: 0;
+  }
+  
+  .cart-section .card-header .toast-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+  }
+  
+  .cart-section .card-body {
+    padding: 20px;
+  }
+  
+  .cart-item {
+    margin-bottom: 20px;
+  }
+  
+  .cart-item .dish-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .cart-item .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .cart-item .card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .cart-btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #e44e3f;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .cart-btn:hover {
+    background-color: #c0392b;
+  }
+  
+   #main-content {
+    padding: 20px;
+    margin-right: 390px;
+  }
+  
+  /* #main-content .row {
+    margin-bottom: 0;
+  }  */
+
+  .main-content{
+    margin-top: 5rem !important;
+  }
