@@ -37,37 +37,63 @@ const getAllDishes = async () => {
     allDishes.innerHTML = ``
     querySnapshot.forEach((doc) => {
         allDishes.innerHTML += `
-        <div class="card dish-card w-100 mb-3">
-        <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <img class="menu-image"
-                        src="${doc.data().image}" />
-                    <div class="p-2">
-                        <h5 class="card-title" id="menu-title" style="font-weight: bolder;">${doc.data().name}
-                                     </h5>
-                                    <p class="card-text my-2" id="menu-text" style="color: #787878;">${doc.data().description}</p>
-                                    <p class="card-text my-2" id="menu-text" style="color: #787878;">${doc.data().serving}</p>
-                                    <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().price}</p>
-                                    </p>
-                    </div>
-                </div>
-                <div class="col d-flex justify-content-end align-items-center mx-2 gap-2">
-                    <button onclick="updateQty('-')" class="qty-btn"><i class="fa-solid fa-minus"></i></button>
-                    <span class="fw-bold"> 1 </span>
-                    <button onclick="updateQty('+')" class="qty-btn"><i class="fa-solid fa-plus"></i></button>
-                    <a href="#" class="btn btn-primary" onclick="addToCart('${doc.id}')">Add to cart</a>                            </div>
-                </div> 
+         <div class="col-md-4 col-sm-6 col-12 mb-3">
+        <div class="card dish-card shadow-lg">
+          <img src="https://www.eatthis.com/wp-content/uploads/sites/4/2022/03/chickensalad.jpg"
+            class="card-img-top img-fluid rounded-top" alt="Menu Image">
+          <div class="card-body">
+            <h5 class="card-title" id="menu-title" style="font-weight: bold;">${doc.data().name}</h5>
+            <p class="card-text my-2" id="menu-text" style="color: #666;">Classic chicken salad with lettuce, tomato, and
+              mayo</p>
+            <p class="card-text my-2" id="menu-text" style="color: #666;">Serving size: 1 person</p>
+            <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">$10.99</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="qty-btn-group">
+                <button onclick="updateQty('-')" class="btn btn-sm btn-secondary"><i class="fa-solid fa-minus"></i></button>
+                <span class="fw-bold"> 1 </span>
+                <button onclick="updateQty('+')" class="btn btn-sm btn-secondary"><i class="fa-solid fa-plus"></i></button>
+              </div>
+              <a href="#" class="btn btn-sm btn-primary" onclick="addToCart()">Add to cart</a>
             </div>
-        </div>`;
+          </div>
+        </div>
+      </div>
+        `
     });
 };
 
 getAllDishes();
 
 const updateQty = (type) => {
-    console.log(event.target)
+    console.log(event.target);
    console.log(type);
 }
 
 window.updateQty = updateQty;
+
+
+
+
+/* <div class="container-fluid py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-sm-6 col-12 mb-3">
+      <div class="card dish-card shadow-lg">
+        <img src="${doc.data().image}" class="card-img-top img-fluid rounded-top" alt="Menu Image">
+        <div class="card-body">
+          <h5 class="card-title" id="menu-title" style="font-weight: bold;">${doc.data().name}</h5>
+          <p class="card-text my-2" id="menu-text" style="color: #666;">${doc.data().description}</p>
+          <p class="card-text my-2" id="menu-text" style="color: #666;">${doc.data().serving}</p>
+          <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().price}</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="qty-btn-group">
+              <button onclick="updateQty('-')" class="btn btn-sm btn-secondary"><i class="fa-solid fa-minus"></i></button>
+              <span class="fw-bold"> 1 </span>
+              <button onclick="updateQty('+')" class="btn btn-sm btn-secondary"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <a href="#" class="btn btn-sm btn-primary" onclick="addToCart('${doc.id}')">Add to cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> */
