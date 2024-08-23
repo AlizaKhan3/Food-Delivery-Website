@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/Food delivery app logo design.jpeg" type="image/x-icon">
   <title>Dishes</title>
@@ -174,7 +175,7 @@
               <div class="card-header" style="background-color:#fce8e6;">
                 <b class="card-title">Cart</b>
               </div>
-              <div style="overflow-y: auto; height: 415px;"> <!-- Add a fixed height to the div -->
+              <div style="overflow-y: auto; height: 380px;"> <!-- Add a fixed height to the div -->
                 <!-- If card is empty  -->
                 <div class="card-body" id="cart-empty-msg">
                   <img src="images/empty cart.avif" class="img-thumbnail" alt=""
@@ -186,16 +187,20 @@
                   <div class="cart-items" id="cart-items-container"><!-- Cart items will be generated here --></div>
                 </div>
               </div>
-              <div class="card-footer" style="background-color: #e44e3f;">
-                <button type="button" class="btn btn-primary btn-sm" id="checkout" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">Checkout <i class="fa-regular fa-circle-right"></i></button>
+              <div class="position-static">
+                <div class="d-flex justify-content-between" id="total-amount-display">
+                </div>
+                <div class="card-footer" style="background-color: #e44e3f;">
+                  <button type="button" class="btn btn-primary btn-sm" id="checkout" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Checkout <i class="fa-regular fa-circle-right"></i></button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow: hidden;">
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -206,27 +211,8 @@
               <div class="row">
                 <div class="col-md-6">
                   <h2>Reciept Summary</h2>
-                  <table>
-                    <tr>
-                      <th>120 x 2 nights</th>
-                      <td>240.00 USD</td>
-                    </tr>
-                    <tr>
-                      <th>Discount</th>
-                      <td>0 USD</td>
-                    </tr>
-                    <tr>
-                      <th>Subtotal</th>
-                      <td>240 USD</td>
-                    </tr>
-                    <tr>
-                      <th>Tax</th>
-                      <td>10 USD</td>
-                    </tr>
-                    <tr>
-                      <th>Sum</th>
-                      <td>$180</td>
-                    </tr>
+                  <table  id="order-summary">
+                    
                   </table>
                 </div>
                 <div class="col-md-6">
@@ -241,7 +227,8 @@
                   </div>
                   <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <textarea class="form-control" id="customer-address" rows="3" placeholder="Enter your address"></textarea>
+                    <textarea class="form-control" id="customer-address" rows="3"
+                      placeholder="Enter your address"></textarea>
                   </div>
                 </div>
               </div>
