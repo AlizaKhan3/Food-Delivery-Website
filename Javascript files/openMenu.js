@@ -98,7 +98,33 @@ const addToCart = (id) => {
   const dish = dishes.filter(v => v.id === id);
   cart.push({ ...dish[0], qty: Number(qty.innerHTML) });
   localStorage.setItem('cart', JSON.stringify(cart));
-  getCartItems();
+ //total amount
+ const totalSumDisplay = document.getElementById("total-amount-display");
+ const sum = cart.reduce((a, b) => a + Number(b.price) * b.qty, 0);
+
+ // Update the display based on cart items
+ if (sum > 0) {
+   totalSumDisplay.innerHTML = `
+     <p class="card-text" style="font-weight: 400;"><i class="fa-solid fa-bag-shopping mx-2" style="color:orange;"></i>Total Amount =</p>
+     <p class="card-text" style="font-weight: 400;">${sum}</p>
+   `;
+ } else {
+   totalSumDisplay.innerHTML = `
+     <p class="card-text" style="font-weight: 400;"><i class="fa-solid fa-bag-shopping mx-2" style="color:orange;"></i> Total Amount =</p>
+     <p class="card-text fw-bold" style="font-weight: 400;">0</p>
+   `;
+ }
+
+ console.log("the total amount is =>", sum);
+ getCartItems();
+  // const totalSumDisplay = document.getElementById("total-amount-display");
+  // const sum = cart.reduce((a, b) => a + Number(b.price) * b.qty, 0);
+  // totalSumDisplay.innerHTML = `
+  //  <p class="card-text" style="font-weight: 400;">Total Amount = <i class="fa-regular fa-face-frown mx-2"></i></p>
+  //  <p class="card-text" style="font-weight: 400;">${sum}</p>
+  // `
+  // console.log("the total amount is =>", sum);
+  // getCartItems();
 }
 
 const getCartItems = () => {
@@ -141,7 +167,8 @@ const removeItem = (id) => {
   const cartItems = JSON.parse(localStorage.getItem('cart'));
   const updatedCartItems = cartItems.filter((item) => item.id !== id);
   localStorage.setItem('cart', JSON.stringify(updatedCartItems));
-  getCartItems(); // Call getCartItems to update the cart display
+  getCartItems(); 
+  updateTotalSumDisplay(); // Update the total sum display
   console.log("removed item from the cart");
 }
 
