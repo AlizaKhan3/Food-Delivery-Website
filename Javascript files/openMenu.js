@@ -103,9 +103,14 @@ const addToCart = (id) => {
 
 const getCartItems = () => {
   const cartItems = JSON.parse(localStorage.getItem('cart'));
+  const emptyCart = document.getElementById("cart-empty-msg");
   const cart = document.getElementById("cart");
-  cart.innerHTML = "";
-  if (cartItems) {
+  cart.innerHTML = ``;
+
+  if (!cartItems || cartItems.length === 0) {
+    emptyCart.style.display = "block";
+  } else {
+    emptyCart.style.display = "none";
     for (let i = 0; i < cartItems.length; i++) {
       // console.log(cartItems[i]);
       cart.innerHTML += `
@@ -121,7 +126,7 @@ const getCartItems = () => {
               <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"><b style="color:black;">Total =</b> ${cartItems[i].price} Rs x ${cartItems[i].qty} = ${cartItems[i].price * cartItems[i].qty}</p>
             </div>
             <div>
-              <a class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+              <a class="btn btn-sm btn-danger" onclick="removeItem('${cartItems[i].id}')"><i class="fa-solid fa-trash-can"></i></a>
             </div>
           </div>
         </div>
@@ -131,6 +136,16 @@ const getCartItems = () => {
     }
   }
 }
+
+const removeItem = (id) => {
+  const cartItems = JSON.parse(localStorage.getItem('cart'));
+  const updatedCartItems = cartItems.filter((item) => item.id !== id);
+  localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+  getCartItems(); // Call getCartItems to update the cart display
+  console.log("removed item from the cart");
+}
+
 getCartItems();
 window.updateQty = updateQty;
 window.addToCart = addToCart;
+window.removeItem = removeItem;
