@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,62 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/Food delivery app logo design.jpeg" type="image/x-icon">
   <title>Dishes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 500px;
+      margin: 0 auto;
+      /* padding: 20px; */
+      /* border: 1px solid #ccc; */
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border: 1px solid #ccc;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+
+    .modal-btn {
+      background-color: #9c27b0;
+      color: white;
+      padding: 12px 20px;
+      margin: 10px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .modal-btn:hover {
+      background-color: #7b1fa2;
+    }
+  </style>
 </head>
+
 <body>
   <div>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" id="dish-nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="images/Food delivery app logo design.jpeg" style="width: 100px;" alt="">
@@ -50,7 +103,6 @@
         </div>
       </div>
     </nav>
-    <!-- spinner -->
     <div id="page-spinner" class="p-5 text-center">
       <div class="spinner-border text-danger page-spinner" role="status">
         <span class="visually-hidden">Loading...</span>
@@ -108,34 +160,103 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-12 col-sm-12">
-          </div> 
+          </div>
         </div>
       </div>
       <div class="container-fluid py-5">
         <div class="row justify-content-center" id="all-dishes">
         </div>
       </div>
-      <div class="container-fluid py-5">   <!-- Cart section -->
+      <div class="container-fluid py-5"> <!-- Cart section -->
         <div class="row justify-content-center" id="all-dishes">
           <div class="cart-section main-content">
             <div class="card text-center">
-              <div class="card-header">
-                <b><i class="fa-solid fa-cart-shopping mx-2"></i>Cart</b>
+              <div class="card-header" style="background-color:#fce8e6;">
+                <b class="card-title">Cart</b>
               </div>
-              <div style="overflow-y: auto; height: 450px;"> <!-- Add a fixed height to the div -->
+              <div style="overflow-y: auto; height: 415px;"> <!-- Add a fixed height to the div -->
+                <!-- If card is empty  -->
+                <div class="card-body" id="cart-empty-msg">
+                  <img src="images/empty cart.avif" class="img-thumbnail" alt=""
+                    style="border: none; height: 270px; width: 250px;">
+                  <p class="card-text" style="font-weight: 600;">Your cart is empty<i
+                      class="fa-regular fa-face-frown mx-2"></i></p>
+                </div>
                 <div class="card-body" id="cart">
                   <div class="cart-items" id="cart-items-container"><!-- Cart items will be generated here --></div>
                 </div>
-                <div class="card-footer" style="background-color: #e44e3f;">
-                  <a href="#" id="checkout" class="btn btn-sm btn-primary">Checkout</a>
-                </div>
+              </div>
+              <div class="card-footer" style="background-color: #e44e3f;">
+                <button type="button" class="btn btn-primary btn-sm" id="checkout" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">Checkout <i class="fa-regular fa-circle-right"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <script src="Javascript files/openMenu.js" type="module"></script>
-      <script src="app.js" type="module"></script>
-      <script src="Javascript files/firebase.js" type="module"></script>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow: hidden;">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h2>Reciept Summary</h2>
+                  <table>
+                    <tr>
+                      <th>120 x 2 nights</th>
+                      <td>240.00 USD</td>
+                    </tr>
+                    <tr>
+                      <th>Discount</th>
+                      <td>0 USD</td>
+                    </tr>
+                    <tr>
+                      <th>Subtotal</th>
+                      <td>240 USD</td>
+                    </tr>
+                    <tr>
+                      <th>Tax</th>
+                      <td>10 USD</td>
+                    </tr>
+                    <tr>
+                      <th>Sum</th>
+                      <td>$180</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h2>Payment Info</h2>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name: </label>
+                    <input type="text" id="customer-name" class="form-control" placeholder="Enter your name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Contact: </label>
+                    <input type="number" class="form-control" id="customer-phone" placeholder="Enter contact number">
+                  </div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="customer-address" rows="3" placeholder="Enter your address"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="place-order">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="app.js" type="module"></script>
+        <script src="Javascript files/openMenu.js" type="module"></script>
+        <script src="Javascript files/firebase.js" type="module"></script>
+        <script src="Javascript files/order.js" type="module"></script>
 </body>
+
 </html>
