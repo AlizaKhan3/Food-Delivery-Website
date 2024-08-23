@@ -1,29 +1,30 @@
 import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp } from "./firebase.js"
 const placeOrder = document.getElementById("place-order");
+let totalAmountModal = document.getElementById("total-amount-modal");
 
-const orderSummary = document.getElementById("order-summary");
+// const orderSummary = document.getElementById("order-summary");
 
-orderSummary.innerHTML = ` <tr>
-<th>120 x 2 nights</th>
-<td>240.00 USD</td>
-</tr>
-<tr>
-<th>Discount</th>
-<td>0 USD</td>
-</tr>
-<tr>
-<th>Subtotal</th>
-<td>240 USD</td>
-</tr>
-<tr>
-<th>Tax</th>
-<td>10 USD</td>
-</tr>
-<tr>
-<th>Total</th>
-<td id="total-amount">$180</td>
-</tr>
-`
+// orderSummary.innerHTML = ` <tr>
+// <th>120 x 2 nights</th>
+// <td>240.00 USD</td>
+// </tr>
+// <tr>
+// <th>Discount</th>
+// <td>0 USD</td>
+// </tr>
+// <tr>
+// <th>Subtotal</th>
+// <td>240 USD</td>
+// </tr>
+// <tr>
+// <th>Tax</th>
+// <td>10 USD</td>
+// </tr>
+// <tr>
+// <th>Total</th>
+// <td id="total-amount">$180</td>
+// </tr>
+// `
 
 placeOrder.addEventListener('click', async () => {
     const customerName = document.getElementById("customer-name");
