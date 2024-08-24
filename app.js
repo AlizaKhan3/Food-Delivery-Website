@@ -56,8 +56,8 @@ const getAllRestaurants = async () => {
             <div class="card-body">
               <a href="dishes.html?restaurant=${doc.id}"><h5 class="card-title" id="rest-display-card">${doc.data().name}</h5></a>
               <p class="card-text">
-              <span class="badge text-bg-primary">Fastfood</span>
-              <span class="badge text-bg-primary">Drinks</span>
+              <span class="badge badge-color text-bg-primary">Fastfood</span>
+              <span class="badge badge-color text-bg-primary">Drinks</span>
               </p>
             </div>
         </div>
@@ -68,6 +68,9 @@ const getAllRestaurants = async () => {
 onAuthStateChanged(auth,(user) => {
   if (user && location.pathname.indexOf("restaurants") !== -1) {
     getAllRestaurants();  
+    console.log("hogaya ab sahi load")
   }
-    
+
+  // getAllRestaurants();
 })
+getAllRestaurants();  
