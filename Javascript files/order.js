@@ -1,4 +1,4 @@
-import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp, doc } from "./firebase.js"
+import { storage, ref, getDoc, doc, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp, updateDoc} from "./firebase.js"
 const placeOrder = document.getElementById("place-order");
 
 placeOrder && placeOrder.addEventListener('click', async () => {
@@ -8,7 +8,6 @@ placeOrder && placeOrder.addEventListener('click', async () => {
     const cartItemsRemove = document.getElementById("cart");
     const modalBtn = document.getElementById("modalBtn")
     const cart = JSON.parse(localStorage.getItem("cart"));
-
     const totalSubT = document.getElementById("total-amount-subT");
     const totatCartSum = document.getElementById("total-amount-menu");
     const sum = cart.reduce((a, b) => a + Number(b.price) * b.qty, 0);
@@ -21,7 +20,7 @@ placeOrder && placeOrder.addEventListener('click', async () => {
         customerName: customerName.value,
         customerPhone: customerPhone.value,
         customerAddress: customerAddress.value,
-        totalSum : sum,
+        totalSum: sum,
         status: "pending",
         cart,
         timestamp: serverTimestamp()
@@ -52,7 +51,8 @@ const getAllOrders = async () => {
     const mainContent = document.getElementById("main-content-order")
     const q = collection(db, "orders");
     const querySnapshot = await getDocs(q);
-    let index =  0;
+    let index = 0;
+    allOrders.innerHTML = ""; // Clear the existing content
     querySnapshot.forEach(doc => {
         index++;
         console.log("orders", doc.data());
@@ -61,13 +61,13 @@ const getAllOrders = async () => {
         let statusColor = "";
 
         if (status === "pending") {
-            statusColor = "text-bg-warning";
+            statusColor = "text-bg-info";
         }
         if (status === "delivered") {
             statusColor = "text-bg-success";
         }
-        if (status === "confirmed") {
-            statusColor = "text-bg-info";
+        if (status === "cancelled") {
+            statusColor = "text-bg-warning";
         }
         allOrders.innerHTML += `
             <td>${index}</td>
@@ -76,8 +76,7 @@ const getAllOrders = async () => {
             <td>${doc.data().customerAddress}</td>
             <td>${doc.data().totalSum}</td>
             <td><span class="badge ${statusColor}">${status}</span></td>
-            <td><button onclick="viewOrderDetails('${doc.data().cart}')" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"> View Order Details</button></td>
-            `
+ <td><button onclick="viewOrderDetail('${doc.id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View details</button></td>            `
     });
     pageSpinner.style.display = "none";
     mainContent.style.display = "block";
@@ -85,8 +84,55 @@ const getAllOrders = async () => {
 
 getAllOrders();
 
-const viewOrderDetails = (cart) => {
- console.log("view cart", cart)   
-}
+let updateOrderId;
 
-window.viewOrderDetails = viewOrderDetails;
+const viewOrderDetail = async (id) => {
+    updateOrderId = id;
+    const orderStatus = document.getElementById("orderStatus");
+    const cartElement = document.getElementById("cart");
+    const docRef = doc(db, "orders", id);
+    const docSnap = await getDoc(docRef);
+    const data = docSnap.data();
+    orderStatus.value = docSnap.data().status
+    const cart = data.cart; // Access the cart property as an array
+
+    cartElement.innerHTML = ""; // Clear the cart element
+
+    cart.forEach((item) => {
+        cartElement.innerHTML += `
+        <div class="cart-item">
+          <div class="row g-0" style="margin-bottom:-20px;">
+            <div class="col-2" style="margin: 1rem;">
+              <img src="${item.image}" class="img-fluid rounded-start dish-image" alt="...">
+            </div>
+            <div class="col">
+              <div class="card-body d-flex justify-content-center align-items-center">
+                <div class="pe-5" style="text-align:left;">
+                  <p class="card-title" style="font-size:12px;">${item.name}</p>
+                  <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"><b style="color:black;">Total =</b> ${item.price} Rs x ${item.qty} = ${item.price * item.qty}</p>
+                </div>
+              <div>
+                <a class="btn btn-sm btn-danger"><i class="fa-solid fa-check"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+}
+const updateOrder = document.getElementById("updateOrder");
+
+updateOrder.addEventListener('click', async () => {
+    console.log(updateOrderId);
+      const closeBtn = document.getElementById("close-btn");
+      const orderStatus = document.getElementById("orderStatus");
+      const docRef = doc(db, "orders", updateOrderId);
+      await updateDoc(docRef, {
+        status: orderStatus.value,
+      });
+      closeBtn.click();
+      getAllOrders();
+});
+
+
+window.viewOrderDetail = viewOrderDetail;
