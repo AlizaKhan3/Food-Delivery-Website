@@ -121,12 +121,11 @@ const addToCart = (id) => {
     totalAmountDiscount = 150;
     let platformFee = document.getElementById("total-amount-platform");
     platformFee = 10;
-    let totalSubT = document.getElementById("total-amount-subT");
-
+    const totalSubT = document.getElementById("total-amount-subT");
     totalSumDisplay.innerHTML = `<p class="card-text" style="font-weight: 400;"><i class="fa-solid fa-bag-shopping mx-2" style="color:orange;"></i>Total Amount =</p>
     <p class="card-text" style="font-weight: 400;">Rs ${sum}/-</p>`;
     totatCartSum.innerHTML = `${sum} Rs`;
-    totalSubT.innerHTML = `${sum - totalAmountDiscount + platformFee} Rs`;
+    totalSubT.innerHTML = `${sum - totalAmountDiscount + platformFee + 100} Rs`;
   }
   updateSum(cart);
   // console.log("the total amount is =>", sum);
@@ -158,7 +157,7 @@ const getCartItems = () => {
               <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"><b style="color:black;">Total =</b> ${cartItems[i].price} Rs x ${cartItems[i].qty} = ${cartItems[i].price * cartItems[i].qty}</p>
             </div>
             <div>
-              <a class="btn btn-sm btn-danger" onclick="removeItem('${cartItems[i].id}')"><i class="fa-solid fa-trash-can"></i></a>
+              <a class="btn btn-sm btn-danger" onclick="removeItem('${i}')"><i class="fa-solid fa-trash-can"></i></a>
             </div>
           </div>
         </div>
@@ -169,12 +168,21 @@ const getCartItems = () => {
   }
 }
 
-const removeItem = (id) => {
+const removeItem = (i) => {
   const cartItems = JSON.parse(localStorage.getItem('cart'));
-  const updatedCartItems = cartItems.filter((item) => item.id !== id);
-  localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+  // const updatedCartItems = cartItems.filter((item) => item.id !== id);
+  // localStorage.setItem('cart', JSON.stringify(updatedCartItems));
+  // getCartItems();
+  // console.log("removed item from the cart");
+  cartItems.splice(Number(i),1);
+  localStorage.setItem("cart", JSON.stringify(cartItems));
   getCartItems();
-  console.log("removed item from the cart");
+  const totalSubT = document.getElementById("total-amount-subT");
+  const totatCartSum = document.getElementById("total-amount-menu");
+  const sum = cartItems.reduce((a, b) => a + Number(b.price) * b.qty, 0);
+  totatCartSum.innerHTML = `${sum} Rs`;
+  totalSubT.innerHTML = `${sum - 150 + 10 + 99} Rs`;
+  getCartItems();
 }
 
 getCartItems();
