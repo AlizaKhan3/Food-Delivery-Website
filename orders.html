@@ -48,102 +48,36 @@
         </div>
       </div>
     </nav>
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 my-3">
-          <div class="d-flex justify-content-between">
-            <h1>Order Details</h1>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Add New Dish
-            </button> 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add dishes here</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Restaurant name</label>
-                      <select id="restaurant-name" class="form-select" aria-label="Default select example"></select>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Dish name</label>
-                      <input type="text" class="form-control" id="dish-name" placeholder="Dish Name">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Description</label>
-                      <input type="text" class="form-control" id="dish-description" placeholder="Dish Description">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Dish Price</label>
-                      <input type="text" class="form-control" id="dish-price" placeholder="Dish Price">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Serving</label>
-                      <select id="dish-serving" class="form-select" aria-label="Default select example">
-                        <option selected>Select option</option>
-                        <option value="1 Person"> 1 Person</option>
-                        <option value="2-3 Persons"> 2-3 Persons</option>
-                        <option value="3-4 Persons"> 3-4 Persons</option>
-                        <option value="4-5 Persons"> 4-5 Persons</option>
-                        <option value="5-7 Persons"> 5-7 Persons</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label for="formFile" class="form-label">Dish Image</label>
-                      <input class="form-control" type="file" id="dish-image">
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" id="close-btn" class="btn btn-secondary"
-                      data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addDish">
-                      <div id="dish-spinner" class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                      Add Dish
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div id="page-spinner" class="p-5 text-center">
-      <div class="spinner-border text-danger page-spinner" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+  </div>
+  <div id="page-spinner" class="p-5 text-center">
+    <div class="spinner-border text-danger page-spinner" role="status">
+      <span class="visually-hidden">Loading...</span>
     </div>
   </div>
+  <div id="main-content-order" style="display: none;">
+
   <div class="row mt-3">
     <h1>Order Details</h1>
-
     <div class="col-12">
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">Order#</th>
-              <th scope="col"></th>
-              <th scope="col">Customer Name</th>
-              <th scope="col">Customer Contact</th>
-              <th scope="col">Customer Address</th>
-              <th scope="col">Order Status</th>
-              <th scope="col">Order Summary</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Order#</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Customer Name</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Customer Contact</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Customer Address</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Order Status</th>
+              <th scope="col" class="fw-bold" style="background-color: coral;">Order Summary</th>
             </tr>
           </thead>
-          <tbody id="all-dishes"></tbody>
+          <tbody id="all-orders"></tbody>
         </table>
       </div>
     </div>
   </div>
   </div>
-  </div>
   <script src="Javascript files/order.js" type="module"></script>
 </body>
+
 </html>
