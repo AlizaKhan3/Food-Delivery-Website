@@ -10,7 +10,6 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/Food delivery app logo design.jpeg" type="image/x-icon">
@@ -31,13 +30,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="dashboard.html">Dashboard</a>
+              <a class="nav-link" aria-current="page" href="dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="newDishes.html">Dishes</a>
+              <a class="nav-link active" aria-current="page" href="newDishes.html">Dishes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Orders</a>
+              <a class="nav-link" href="orders.html">Orders</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="restaurants.html">Restaurants</a>
@@ -49,65 +48,69 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 my-3">
-          <div class="d-flex justify-content-between">
-            <h1>Restaurant Dishes Data</h1>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Add New Dish
-            </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add dishes here</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div id="page-spinner" class="p-5 text-center">
+      <div class="spinner-border text-danger page-spinner" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 my-3">
+        <div class="d-flex justify-content-between">
+          <h1>Restaurant Dishes Data</h1>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add New Dish
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Add dishes here</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Restaurant name</label>
+                    <select id="restaurant-name" class="form-select" aria-label="Default select example"></select>
                   </div>
-                  <div class="modal-body">
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Restaurant name</label>
-                      <select id="restaurant-name" class="form-select" aria-label="Default select example"></select>
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Dish name</label>
-                      <input type="text" class="form-control" id="dish-name" placeholder="Dish Name">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Description</label>
-                      <input type="text" class="form-control" id="dish-description" placeholder="Dish Description">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Dish Price</label>
-                      <input type="text" class="form-control" id="dish-price" placeholder="Dish Price">
-                    </div>
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Serving</label>
-                      <select id="dish-serving" class="form-select" aria-label="Default select example">
-                        <option selected>Select option</option>
-                        <option value="1 Person"> 1 Person</option>
-                        <option value="2-3 Persons"> 2-3 Persons</option>
-                        <option value="3-4 Persons"> 3-4 Persons</option>
-                        <option value="4-5 Persons"> 4-5 Persons</option>
-                        <option value="5-7 Persons"> 5-7 Persons</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label for="formFile" class="form-label">Dish Image</label>
-                      <input class="form-control" type="file" id="dish-image">
-                    </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Dish name</label>
+                    <input type="text" class="form-control" id="dish-name" placeholder="Dish Name">
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" id="close-btn" class="btn btn-secondary"
-                      data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addDish">
-                      <div id="dish-spinner" class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                      Add Dish
-                    </button>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="dish-description" placeholder="Dish Description">
                   </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Dish Price</label>
+                    <input type="text" class="form-control" id="dish-price" placeholder="Dish Price">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Serving</label>
+                    <select id="dish-serving" class="form-select" aria-label="Default select example">
+                      <option selected>Select option</option>
+                      <option value="1 Person"> 1 Person</option>
+                      <option value="2-3 Persons"> 2-3 Persons</option>
+                      <option value="3-4 Persons"> 3-4 Persons</option>
+                      <option value="4-5 Persons"> 4-5 Persons</option>
+                      <option value="5-7 Persons"> 5-7 Persons</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="formFile" class="form-label">Dish Image</label>
+                    <input class="form-control" type="file" id="dish-image">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="close-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="addDish">
+                    <div id="dish-spinner" class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    Add Dish
+                  </button>
                 </div>
               </div>
             </div>
@@ -116,6 +119,7 @@
       </div>
     </div>
   </div>
+
   </div>
   <div class="row mt-3">
     <div class="col-12">
