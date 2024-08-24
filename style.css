@@ -62,7 +62,7 @@
   transition: transform 0.1s ease-in-out;
 }
 
-.badge {
+.badge-color {
   background-color: #e44e3f !important;
 }
 
