@@ -1,37 +1,13 @@
-import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp } from "./firebase.js"
+import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp, doc } from "./firebase.js"
 const placeOrder = document.getElementById("place-order");
 
-// const orderSummary = document.getElementById("order-summary");
-
-// orderSummary.innerHTML = ` <tr>
-// <th>120 x 2 nights</th>
-// <td>240.00 USD</td>
-// </tr>
-// <tr>
-// <th>Discount</th>
-// <td>0 USD</td>
-// </tr>
-// <tr>
-// <th>Subtotal</th>
-// <td>240 USD</td>
-// </tr>
-// <tr>
-// <th>Tax</th>
-// <td>10 USD</td>
-// </tr>
-// <tr>
-// <th>Total</th>
-// <td id="total-amount">$180</td>
-// </tr>
-// `
-
-placeOrder.addEventListener('click', async () => {
+placeOrder && placeOrder.addEventListener('click', async () => {
     const customerName = document.getElementById("customer-name");
     const customerPhone = document.getElementById("customer-phone");
     const customerAddress = document.getElementById("customer-address");
     const cartItemsRemove = document.getElementById("cart");
     const modalBtn = document.getElementById("modalBtn")
-    const cart = JSON.parse(localStorage.getItem("cart"));   
+    const cart = JSON.parse(localStorage.getItem("cart"));
     console.log(cart);
     console.log(customerName.value, customerAddress.value, customerPhone.value);
     const orderDetails = {
@@ -61,3 +37,24 @@ placeOrder.addEventListener('click', async () => {
     cartItemsRemove.innerHTML = "";
     modalBtn.click();
 })
+
+const getAllOrders = async () => {
+    const allOrders = document.getElementById("all-orders")
+    const pageSpinner = document.getElementById("page-spinner");
+    const q = collection(db, "orders");
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach(doc => {
+        console.log("orders", doc.data());
+        allOrders.innerHTML = `
+        <th scope="row">${index}</th>
+            <td><img src="${doc.data().image}" class="dish-image" alt=""></td>
+            <td>${doc.data().name}</td>
+            <td>${doc.data().description}</td>
+            <td>${doc.data().price}</td>
+            <td>${doc.data().serving}</td>
+            <td>${restaurantNames[doc.data().restaurant]}</td>`
+    });
+    pageSpinner.style.display = "none";
+}
+
+getAllOrders();
