@@ -44,6 +44,8 @@ let uploadFile = (file, name) => {
 
 const getAllRestaurants = async () => {
     const resList = document.getElementById("res-list");
+    const pageSpinner = document.getElementById("page-spinner");
+    const mainContent = document.getElementById("main-content-rest")
     resList.innerHTML = "";
     const q = collection(db, "restaurants");
     const querySnapshot = await getDocs(q);
@@ -60,6 +62,8 @@ const getAllRestaurants = async () => {
                     </tr>
         `
     });
+    pageSpinner.style.display = "none";
+    mainContent.style.display = "block";
 }
 
 getAllRestaurants()
