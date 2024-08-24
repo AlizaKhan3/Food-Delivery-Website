@@ -41,7 +41,7 @@ loginBtn && loginBtn.addEventListener('click', login);
 const getAllRestaurants = async () => {
   const pageSpinner = document.getElementById("page-spinner")
   const resList = document.getElementById("res-list");
-  resList.innerHTML = ``;
+  resList.innerHTML = "";
   const q = collection(db, "restaurants");
   const querySnapshot = await getDocs(q);
   let index = 0;
