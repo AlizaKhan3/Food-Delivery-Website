@@ -5,7 +5,6 @@ placeOrder && placeOrder.addEventListener('click', async () => {
     const customerName = document.getElementById("customer-name");
     const customerPhone = document.getElementById("customer-phone");
     const customerAddress = document.getElementById("customer-address");
-    // const totalSum = document.getElementById("total-amount-subT")
     const cartItemsRemove = document.getElementById("cart");
     const modalBtn = document.getElementById("modalBtn")
     const cart = JSON.parse(localStorage.getItem("cart"));
@@ -77,6 +76,7 @@ const getAllOrders = async () => {
             <td>${doc.data().customerAddress}</td>
             <td>${doc.data().totalSum}</td>
             <td><span class="badge ${statusColor}">${status}</span></td>
+            <td><button onclick="viewOrderDetails('${doc.data().cart}')" type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal"> View Order Details</button></td>
             `
     });
     pageSpinner.style.display = "none";
@@ -84,3 +84,9 @@ const getAllOrders = async () => {
 }
 
 getAllOrders();
+
+const viewOrderDetails = (cart) => {
+ console.log("view cart", cart)   
+}
+
+window.viewOrderDetails = viewOrderDetails;
