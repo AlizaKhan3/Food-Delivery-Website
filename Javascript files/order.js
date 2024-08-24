@@ -1,6 +1,5 @@
 import { storage, ref, uploadBytesResumable, getDownloadURL, db, collection, addDoc, getDocs, serverTimestamp } from "./firebase.js"
 const placeOrder = document.getElementById("place-order");
-let totalAmountModal = document.getElementById("total-amount-modal");
 
 // const orderSummary = document.getElementById("order-summary");
 
@@ -31,6 +30,7 @@ placeOrder.addEventListener('click', async () => {
     const customerPhone = document.getElementById("customer-phone");
     const customerAddress = document.getElementById("customer-address");
     const cartItemsRemove = document.getElementById("cart");
+    const modalBtn = document.getElementById("modalBtn")
     const cart = JSON.parse(localStorage.getItem("cart"));   
     console.log(cart);
     console.log(customerName.value, customerAddress.value, customerPhone.value);
@@ -40,7 +40,10 @@ placeOrder.addEventListener('click', async () => {
         customerPhone: customerPhone.value,
         status: "pending",
         cart,
-        timestamp: serverTimestamp(),
+        timestamp: serverTimestamp()
+        // orderAmount: 23,
+        // deliveryFee: 100,
+        // totalAmount: 100,
     }
     const docRef = await addDoc(collection(db, "orders"), orderDetails)
 
@@ -56,4 +59,5 @@ placeOrder.addEventListener('click', async () => {
     customerPhone.value = "";
     localStorage.removeItem("cart");
     cartItemsRemove.innerHTML = "";
+    modalBtn.click();
 })
