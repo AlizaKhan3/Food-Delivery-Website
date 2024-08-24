@@ -57,6 +57,8 @@ const getAllRestaurants = async () => {
 // getAllRestaurants();
 
 const getAllDishes = async () => {
+    const mainContentDish = document.getElementById("main-content-dish");
+    const pageSpinner = document.getElementById("page-spinner");
     const restaurants = await getAllRestaurants();
     const allDishes = document.getElementById("all-dishes");
     const q = collection(db, "dishes");
@@ -83,6 +85,8 @@ const getAllDishes = async () => {
             <td>${restaurantNames[doc.data().restaurant]}</td>
         `
     })
+    pageSpinner.style.display = "none";
+    mainContentDish.style.display = "block";
 }
 
 getAllDishes();
