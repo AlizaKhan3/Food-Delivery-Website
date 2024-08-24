@@ -1,4 +1,4 @@
-import { auth, signInWithEmailAndPassword, collection, db, getDocs } from "./Javascript files/firebase.js"
+import { auth, signInWithEmailAndPassword, collection, db, getDocs, onAuthStateChanged } from "./Javascript files/firebase.js"
 
 const toastTrigger = document.getElementById('liveToastBtn')
 const toastLiveExample = document.getElementById('liveToast')
@@ -65,5 +65,9 @@ const getAllRestaurants = async () => {
         `;
   });
 };
-
-getAllRestaurants();
+onAuthStateChanged(auth,(user) => {
+  if (user && location.pathname.indexOf("restaurants") !== -1) {
+    getAllRestaurants();  
+  }
+    
+})
