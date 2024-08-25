@@ -19,7 +19,7 @@
 <body>
   <div>
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
+      <div class="container-fluid" style="background-color: #fff;">
         <a class="navbar-brand" href="#">
           <img src="images/Food delivery app logo design.jpeg" style="width: 100px;" alt="">
         </a>
@@ -29,62 +29,67 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#restaurants">Restaurants</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
+            <li class="nav-item active">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#exploreRest">Restaurants</a>
+            </li>
           </ul>
           <div class="d-flex gap-2" role="search" style="font-weight: 600;">
             <a href="login.html"><button class="btn btn-primary">Login</button></a>
             <a href="signup.html"><button class="btn btn-outline-primary">Signup</button></a>
-            <button class="btn btn-primary" type="submit" style="border-radius: 20rem;"><i class="fa-solid fa-cart-shopping"></i></button>
+            <button class="btn btn-primary" style="border-radius: 20rem;" id="showCart" onclick="showCart()"><i
+                class="fa-solid fa-cart-shopping"></i></button>
           </div>
         </div>
       </div>
     </nav>
     <div id="carouselExampleCaptions" class="carousel slide">
       <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="images/carousel img2.png" class="d-block w-100 h-50" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Avail Discounts flat 20% Off</h5>
-            <p>Need more? Explore available restaurants to have more flavor!</p>
-          </div>
+          <img src="images/niFood, Where Every Craving Meets Its Match!.png" class="d-block w-100 h-30" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/image off.png" class="d-block w-100 h-30" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="images/niFood, Where Every Craving Meets Its Match!.png" class="d-block w-100 h-30" alt="...">
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <p class="h1 text-center" style="font-weight: bolder;" id="exploreRest">Craving today?</p>
+      <p class="h6 text-center">Explore the restaurants below!</p>
+      <div class="container">
+        <div id="res-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 my-2"></div>
+      </div>
+      <div id="page-spinner" class="pb-5 text-center">
+        <div class="spinner-border text-danger page-spinner" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-    <p class="h1 text-center" style="font-weight: bolder;">Craving today?</p>
-    <p class="h6 text-center">Explore the restaurants below!</p>
-    <div class="container">
-      <div id="res-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 my-2"></div>
-    </div>
-    <div id="page-spinner" class="p-5 text-center">
-      <div class="spinner-border text-danger page-spinner" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
-  </div>
-  <script src="app.js" type="module"></script>
+    <script src="app.js" type="module"></script>
 </body>
+
 </html>
