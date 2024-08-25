@@ -51,8 +51,9 @@ const getAllOrders = async () => {
     const mainContent = document.getElementById("main-content-order")
     const q = collection(db, "orders");
     const querySnapshot = await getDocs(q);
-    let index = 0;
     allOrders.innerHTML = ""; // Clear the existing content
+
+    let index = 0;
     querySnapshot.forEach(doc => {
         index++;
         console.log("orders", doc.data());
@@ -109,7 +110,7 @@ const viewOrderDetail = async (id) => {
               <div class="card-body d-flex justify-content-center align-items-center">
                 <div class="pe-5" style="text-align:left;">
                   <p class="card-title" style="font-size:12px;">${item.name}</p>
-                  <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"><b style="color:black;">Total =</b> ${item.price} Rs x ${item.qty} = ${item.price * item.qty}</p>
+                  <p class="card-text my-1" id="menu-text" style="color: #ce1a1a;"><b style="color:black;">Total =</b> ${item.price} Rs x ${item.qty} = ${item.price * item.qty}</p>
                 </div>
               <div>
                 <a class="btn btn-sm btn-danger"><i class="fa-solid fa-check"></i></a>
@@ -120,9 +121,8 @@ const viewOrderDetail = async (id) => {
       `;
     });
 }
-const updateOrder = document.getElementById("updateOrder");
-
-updateOrder.addEventListener('click', async () => {
+let updateOrder = document.getElementById("updateOrder");
+updateOrder.addEventListener("click", async () => {
     console.log(updateOrderId);
       const closeBtn = document.getElementById("close-btn");
       const orderStatus = document.getElementById("orderStatus");
