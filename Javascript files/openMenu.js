@@ -174,7 +174,7 @@ const removeItem = (i) => {
   // localStorage.setItem('cart', JSON.stringify(updatedCartItems));
   // getCartItems();
   // console.log("removed item from the cart");
-  cartItems.splice(Number(i),1);
+  cartItems.splice(Number(i), 1);
   localStorage.setItem("cart", JSON.stringify(cartItems));
   getCartItems();
   const totalSubT = document.getElementById("total-amount-subT");
@@ -193,12 +193,13 @@ window.removeItem = removeItem;
 const showCartButton = document.getElementById('showCart');
 const cartContent = document.getElementById('cart-content');
 const cartResponsive = document.getElementById('cart-responsive');
-
+// const modal = new bootstrap.Modal(document.getElementById('myModal'), {
+//   backdrop: 'static' // or 'true' or false
+// });
 // Add event listener to the button
-showCartButton.addEventListener('click', function() {
+showCartButton.addEventListener('click', function () {
   // Toggle the cart content visibility
   cartResponsive.style.display = cartResponsive.style.display === 'none' ? 'block' : 'none';
-
   // Center the cart content
   cartContent.style.position = 'absolute';
   cartContent.style.top = '50%';
