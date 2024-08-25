@@ -18,8 +18,8 @@
 }
 
 .btn-primary {
-  background-color: #e44e3f;
-  border-color: #e44e3f;
+  background-color: #ce1a1a;
+  border-color: #ce1a1a;
   cursor: pointer;
   /* change cursor on hover */
   transition: transform 0.3s ease-in-out;
@@ -27,13 +27,13 @@
 }
 
 .btn-primary:hover {
-  background-color: #e44e3f;
-  border-color: #e44e3f;
+  background-color: #ce1a1a;
+  border-color: #ce1a1a;
 }
 
 .btn-primary:active {
-  background-color: #e44e3f !important;
-  border-color: #e44e3f !important;
+  background-color: #ce1a1a !important;
+  border-color: #ce1a1a !important;
   opacity: 0.8;
   transform: scale(0.9);
   /* zoom out on click */
@@ -62,7 +62,7 @@
 }
 
 .badge-color {
-  background-color: #e44e3f !important;
+  background-color: #ce1a1a !important;
 }
 
 #menu-text {
@@ -96,13 +96,13 @@ body {
 }
 
 .qty-btn {
-  border: 1px solid #e44e3f;
+  border: 1px solid #ce1a1a;
   border-radius: 15px;
 }
 
 .social-icons {
   font-size: 0.6rem;
-  color: #e44e3f;
+  color: #ce1a1a;
 }
 
 .selected-logo {
@@ -212,7 +212,7 @@ a {
 .cart-btn {
   font-size: 16px;
   color: #fff;
-  background-color: #e44e3f;
+  background-color: #ce1a1a;
   border: none;
   border-radius: 10px;
   padding: 10px 20px;
@@ -235,3 +235,75 @@ a {
 #cart-empty-msg{
   display: none;
 }
+
+@media only screen and (max-width:800px){
+  #cart-responsive {
+    display: none;
+
+    /* margin-block: auto !important; */
+  }
+  #cart-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  div#main-content.row{
+    width: 100%;
+  }
+   #showCart{
+    display: block !important;
+   }
+   #rest-dish-responsive{
+    padding: 10px !important;
+   }
+   #all-dishes {
+    flex-wrap: wrap;
+  }
+  #all-dishes > div {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .qty-btn{
+    padding: 0px 6px;
+  }
+  .fa-plus, .fa-minus{
+    font-size: 10px;
+  }
+  #resp-img {
+    display: flex;
+    justify-content: center;
+  }
+  #resp-img img {
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width:465px) {
+  #all-dishes > div {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  img.img-fluid.rounded{
+    width: 200px;
+    height: 200px;
+  }
+}
+@media only screen and (max-width:449px) {
+  #all-dishes > div {
+    flex: 0 0 100%;
+    max-width: 100%; 
+  }
+  /* #resp-img {
+    display: flex;
+    justify-content: center;
+  }
+  #resp-img img {
+    margin: 0 auto;
+  } */
+}
+  /* img.img-fluid.rounded{
+    margin-left: 2rem;
+    margin-right: auto;
+  } */
