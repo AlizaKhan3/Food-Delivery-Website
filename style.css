@@ -5,7 +5,6 @@
 }
 
 .navbar {
-  /* position: fixed; */
   z-index: 1;
   width: 100%;
   height: 80px;
@@ -13,7 +12,7 @@
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.12), inset 0 -1px 0 0 #dadce0;
 }
 
-#dish-nav{
+#dish-nav {
   position: fixed;
 }
 
@@ -21,9 +20,7 @@
   background-color: #ce1a1a;
   border-color: #ce1a1a;
   cursor: pointer;
-  /* change cursor on hover */
   transition: transform 0.3s ease-in-out;
-  /* transition effect */
 }
 
 .btn-primary:hover {
@@ -36,9 +33,7 @@
   border-color: #ce1a1a !important;
   opacity: 0.8;
   transform: scale(0.9);
-  /* zoom out on click */
   transition: transform 0.1s ease-in-out;
-  /* transition effect */
 }
 
 .btn-outline-primary {
@@ -232,16 +227,20 @@ a {
   margin-top: 5rem !important;
 }
 
-#cart-empty-msg{
+#cart-empty-msg {
   display: none;
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:800px) {
   #cart-responsive {
     display: none;
-
-    /* margin-block: auto !important; */
   }
+
+  #main-content {
+    padding: 0px 0px 0px 20px;
+    margin-right: 390px;
+  }
+
   #cart-content {
     background-color: #fff;
     padding: 20px;
@@ -249,61 +248,62 @@ a {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  div#main-content.row{
+
+  div#main-content.row {
     width: 100%;
   }
-   #showCart{
+
+  #showCart {
     display: block !important;
-   }
-   #rest-dish-responsive{
+  }
+
+  #rest-dish-responsive {
     padding: 10px !important;
-   }
-   #all-dishes {
+  }
+
+  #all-dishes {
     flex-wrap: wrap;
   }
-  #all-dishes > div {
+
+  #all-dishes>div {
     flex: 0 0 50%;
     max-width: 50%;
   }
-  .qty-btn{
+
+  .qty-btn {
     padding: 0px 6px;
   }
-  .fa-plus, .fa-minus{
+
+  .fa-plus,
+  .fa-minus {
     font-size: 10px;
   }
+
   #resp-img {
     display: flex;
     justify-content: center;
   }
+
   #resp-img img {
     margin: 0 auto;
   }
 }
 
 @media only screen and (max-width:465px) {
-  #all-dishes > div {
+  #all-dishes>div {
     flex: 0 0 50%;
     max-width: 50%;
   }
-  img.img-fluid.rounded{
+
+  img.img-fluid.rounded {
     width: 200px;
     height: 200px;
   }
 }
+
 @media only screen and (max-width:449px) {
-  #all-dishes > div {
+  #all-dishes>div {
     flex: 0 0 100%;
-    max-width: 100%; 
+    max-width: 100%;
   }
-  /* #resp-img {
-    display: flex;
-    justify-content: center;
-  }
-  #resp-img img {
-    margin: 0 auto;
-  } */
 }
-  /* img.img-fluid.rounded{
-    margin-left: 2rem;
-    margin-right: auto;
-  } */
