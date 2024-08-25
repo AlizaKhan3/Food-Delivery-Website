@@ -41,14 +41,14 @@ const getAllDishes = async () => {
       <div class="col-lg-6 col-md-12 mb-3">
       <div class="card dish-card shadow-lg">
         <div class="card-body row">
-          <div class="col-md-4">
+          <div class="col-md-4 mx-auto" id="resp-img">
             <img src="${doc.data().image}" class="img-fluid rounded" alt="Menu Image">
           </div>
           <div class="col-md-8">
             <h5 class="card-title" id="menu-title" style="font-weight: bold;">${doc.data().name}</h5>
             <p class="card-text my-2" id="menu-text" style="color: #666;">${doc.data().description}</p>
             <p class="card-text my-2" id="menu-text" style="color: #666;">Serving size: ${doc.data().serving}</p>
-            <p class="card-text my-1" id="menu-text" style="color: #e44e3f;">${doc.data().price} Rs</p>
+            <p class="card-text my-1" id="menu-text" style="color: #ce1a1a;">${doc.data().price} Rs</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="qty-btn-group">
                 <button onclick="updateQty('-','${doc.id}')" class="btn btn-sm btn-primary qty-btn"><i class="fa-solid fa-minus"></i></button>
@@ -154,7 +154,7 @@ const getCartItems = () => {
           <div class="card-body d-flex justify-content-center align-items-center">
             <div class="pe-5" style="text-align:left;">
               <p class="card-title" style="font-size:12px;">${cartItems[i].name}</p>
-              <p class="card-text my-1" id="menu-text" style="color: #e44e3f;"><b style="color:black;">Total =</b> ${cartItems[i].price} Rs x ${cartItems[i].qty} = ${cartItems[i].price * cartItems[i].qty}</p>
+              <p class="card-text my-1" id="menu-text" style="color: #ce1a1a;"><b style="color:black;">Total =</b> ${cartItems[i].price} Rs x ${cartItems[i].qty} = ${cartItems[i].price * cartItems[i].qty}</p>
             </div>
             <div>
               <a class="btn btn-sm btn-danger" onclick="removeItem('${i}')"><i class="fa-solid fa-trash-can"></i></a>
@@ -189,3 +189,20 @@ getCartItems();
 window.updateQty = updateQty;
 window.addToCart = addToCart;
 window.removeItem = removeItem;
+
+const showCartButton = document.getElementById('showCart');
+const cartContent = document.getElementById('cart-content');
+const cartResponsive = document.getElementById('cart-responsive');
+
+// Add event listener to the button
+showCartButton.addEventListener('click', function() {
+  // Toggle the cart content visibility
+  cartResponsive.style.display = cartResponsive.style.display === 'none' ? 'block' : 'none';
+
+  // Center the cart content
+  cartContent.style.position = 'absolute';
+  cartContent.style.top = '50%';
+  cartContent.style.left = '50%';
+  cartContent.style.transform = 'translate(-50%, -50%)';
+  cartContent.style.height = "fit-content"
+});
