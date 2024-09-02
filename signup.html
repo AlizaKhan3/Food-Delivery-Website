@@ -12,8 +12,8 @@
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/Food_delivery_app_logo_design.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
   <title>Create Now - Signup</title>
 </head>
 
@@ -51,19 +51,25 @@
                 <div class="row">
                   <div class="col-md-6 mb-4 pb-2">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="email" id="emailAddress" class="form-control form-control-lg" />
+                      <input type="email" id="email" class="form-control form-control-lg" />
                       <label class="form-label" for="emailAddress">Email</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4 pb-2">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                      <label class="form-label" for="phoneNumber">Phone Number</label>
+                      <input type="password" id="password" class="form-control form-control-lg" />
+                      <label class="form-label" for="emailAddress">Password</label>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-12">
+                  <!-- <div class="col-12"> -->
+                    <div class="col-md-6 mb-4 pb-2">
+                      <div data-mdb-input-init class="form-outline">
+                        <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
+                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                      </div>
+                    </div>
                     <label class="form-label select-label">Choose City</label>
                     <select class="select form-control-lg">
                       <option value="1" disabled>Select City</option>
@@ -72,9 +78,9 @@
                       <option value="4">Islamabad</option>
                     </select>
                   </div>
-                </div>
+                <!-- </div> -->
                 <div class="mt-4 pt-2">
-                  <button data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit">Register Now</button>
+                  <button data-mdb-ripple-init class="btn btn-primary btn-lg" type="submit" id="registerBtn">Register Now</button>
                 </div>
                 <div class="text-center">
                   <p>or sign up with</p>
@@ -99,6 +105,6 @@
   </section>
 </body>
   <script src="./Javascript files/signup.js" type="module"></script>
-  <script src="firebase.js" type="module"></script>
 </body>
-</html>
+</html>  <!-- <script src="./firebase.js" type="module"></script> -->
+  <!-- <script src="app.js"  type="module"></script> -->
