@@ -287,6 +287,9 @@ a {
   #resp-img img {
     margin: 0 auto;
   }
+  .main-content{
+    margin-top: 6rem !important;
+  }
 }
 
 @media only screen and (max-width:465px) {
