@@ -51,7 +51,7 @@ const getAllRestaurants = async () => {
     const querySnapshot = await getDocs(q);
     let index = 0;
     querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data());
+        // console.log(doc.id, " => ", doc.data());
         index++
         resList.innerHTML += `
                     <tr>
