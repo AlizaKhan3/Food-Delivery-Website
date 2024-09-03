@@ -1,4 +1,4 @@
-import {auth, createUserWithEmailAndPassword} from "../Javascript files/firebase.js"
+// import {auth, createUserWithEmailAndPassword} from "../Javascript files/firebase.js"
 
 const register = () => {
     // const firstName = document.getElementById("firstName");
