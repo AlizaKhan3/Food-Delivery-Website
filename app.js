@@ -71,7 +71,7 @@ const getAllRestaurants = async () => {
 };
 
 onAuthStateChanged(auth,(user) => {
-  if ((user && location.pathname.indexOf("restaurants") !== -1) || location.pathname === "/" ) {
+  if ((user && location.pathname.indexOf("restaurants") !== -1) || location.pathname === "index.html" ) {
     getAllRestaurants();  
     console.log("hogaya ab sahi load")
   }
